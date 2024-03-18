@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Lab1Test" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-03-18T18:15:03" hostname="192.168.0.5" time="0.017">
+  <properties/>
+  <testcase name="withdrawFromAccount()" classname="Lab1Test" time="0.012"/>
+  <testcase name="createUser()" classname="Lab1Test" time="0.001"/>
+  <testcase name="payCommission()" classname="Lab1Test" time="0.001"/>
+  <testcase name="addMoneyToAccount()" classname="Lab1Test" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
