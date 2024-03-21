@@ -20,10 +20,20 @@ public class Cat {
     private String breed;
     @Column
     private CatColor color;
-    @Column @OneToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ownerId", nullable = false)
     private Owner owner;
-    @Column @ManyToMany
-    private List<Cat> cats;
+    //@Column @ManyToMany
+    //private List<Cat> cats;
+
+    public Cat(){}
+
+    public Cat(String name, Calendar dateOfBirth, String breed, CatColor color) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.breed = breed;
+        this.color = color;
+    }
 
 
 }

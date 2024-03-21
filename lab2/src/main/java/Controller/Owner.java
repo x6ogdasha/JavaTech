@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.Calendar;
 import java.util.List;
 @Entity
+@Table(name = "owners")
 public class Owner {
     @Id
     @GeneratedValue
@@ -13,6 +14,13 @@ public class Owner {
     private String name;
     @Column
     private Calendar dateOfBirth;
-    @OneToMany
+    @OneToMany(mappedBy = "owner")
     private List<Cat> cats;
+
+    public Owner(){
+    }
+    public Owner(String name, Calendar dateOfBirth) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+    }
 }
