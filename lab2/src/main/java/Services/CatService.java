@@ -1,6 +1,7 @@
 package Services;
 
 import Controller.Cat;
+import Controller.Owner;
 import DAO.CatDAO;
 
 public class CatService {
@@ -29,5 +30,14 @@ public class CatService {
     public void updateCat(Cat cat) {
 
         catDao.updateCat(cat);
+    }
+
+    public void addFriendship(Cat cat, Cat anotherCat) {
+
+        catDao.addFriendship(cat, anotherCat);
+    }
+    public void updateOwner(Cat cat, Owner owner) {
+
+        catDao.updateOwner(cat, owner);
     }
 }

@@ -1,10 +1,13 @@
 package Controller;
 
 import jakarta.persistence.*;
+import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+@Setter
 @Entity
 @Table(name="cats")
 public class Cat {
@@ -21,10 +24,15 @@ public class Cat {
     @Column
     private CatColor color;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ownerId", nullable = false)
     private Owner owner;
-    //@Column @ManyToMany
-    //private List<Cat> cats;
+
+    @ManyToMany
+    @JoinTable(
+            name = "cat_friends",
+            joinColumns = @JoinColumn(name = "cat_id"),
+            inverseJoinColumns = @JoinColumn(name = "friend_id")
+    )
+    private List<Cat> friends = new ArrayList<>();
 
     public Cat(){}
 
@@ -33,6 +41,11 @@ public class Cat {
         this.dateOfBirth = dateOfBirth;
         this.breed = breed;
         this.color = color;
+    }
+
+    public void addFriend(Cat cat){
+
+        friends.add(cat);
     }
 
 

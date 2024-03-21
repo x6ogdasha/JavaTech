@@ -1,6 +1,7 @@
 package DAO;
 
 import Controller.Cat;
+import Controller.Owner;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -89,6 +90,35 @@ public class CatDAO {
         } finally {
             entityManager.close();
             emf.close();
+        }
+    }
+
+    public void addFriendship(Cat cat, Cat anotherCat) {
+
+        EntityTransaction transaction = entityManager.getTransaction();;
+        try {
+            transaction.begin();
+            cat.addFriend(anotherCat);
+            entityManager.merge(cat);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        }
+
+    }
+    public void updateOwner(Cat cat, Owner owner) {
+        EntityTransaction transaction = entityManager.getTransaction();;
+        try {
+            transaction.begin();
+            cat.setOwner(owner);
+            entityManager.merge(cat);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
         }
     }
 }
