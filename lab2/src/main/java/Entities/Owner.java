@@ -1,4 +1,4 @@
-package Controller;
+package Entities;
 
 import jakarta.persistence.*;
 

@@ -4,30 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33a6d19d-20b6-43c9-9312-bb6f0da84807" name="Changes" comment="feat: minor changes">
+    <list default="true" id="33a6d19d-20b6-43c9-9312-bb6f0da84807" name="Changes" comment="feat: added many-to-many, one-to-many, + some methods in DAO">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.6/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.6/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.6/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.6/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.6/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.6/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.6/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.6/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.6/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a7311739-d3e3-4182-b169-1028f56eee65.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a7311739-d3e3-4182-b169-1028f56eee65.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a7311739-d3e3-4182-b169-1028f56eee65/storage_v2/_src_/database/postgres.edMnLQ/schema/myschema.TVKTBQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a7311739-d3e3-4182-b169-1028f56eee65/storage_v2/_src_/database/postgres.edMnLQ/schema/myschema.TVKTBQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a7311739-d3e3-4182-b169-1028f56eee65/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a7311739-d3e3-4182-b169-1028f56eee65/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab2/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2/build/classes/java/main/Controller/Cat.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/build/classes/java/main/Controller/Cat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2/build/classes/java/main/Controller/Owner.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/build/classes/java/main/Controller/Owner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/build/classes/java/main/Controller/Cat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/build/classes/java/main/Controller/CatColor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/build/classes/java/main/Controller/Owner.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lab2/build/classes/java/main/DAO/CatDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/build/classes/java/main/DAO/CatDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/build/classes/java/main/DAO/OwnerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/build/classes/java/main/DAO/OwnerDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab2/build/classes/java/main/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/build/classes/java/main/Program.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab2/build/classes/java/main/Services/CatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/build/classes/java/main/Services/CatService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/build/classes/java/main/Services/OwnerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/build/classes/java/main/Services/OwnerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/build/resources/main/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/build/resources/main/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab2/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2/src/main/java/Controller/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/src/main/java/Controller/Cat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2/src/main/java/Controller/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/src/main/java/Controller/Owner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/src/main/java/Controller/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/src/main/java/Entities/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/src/main/java/Controller/CatColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/src/main/java/Entities/CatColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/src/main/java/Controller/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/src/main/java/Entities/Owner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab2/src/main/java/DAO/CatDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/src/main/java/DAO/CatDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/src/main/java/DAO/OwnerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/src/main/java/DAO/OwnerDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab2/src/main/java/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/src/main/java/Program.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab2/src/main/java/Services/CatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/src/main/java/Services/CatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/src/main/java/Services/OwnerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/src/main/java/Services/OwnerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,27 +95,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.JavaTech:lab2 [:lab2:Program.main()].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;lab2&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.DatabaseTest.addingCat.executor": "Run",
+    "Gradle.DatabaseTest.findCat.executor": "Run",
+    "Gradle.JavaTech:lab2 [:lab2:Program.main()].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "lab2",
+    "jdk.selected.JAVA_MODULE": "openjdk-21",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lab2/src/main/resources/META-INF" />
@@ -114,7 +130,7 @@
       <recent name="$PROJECT_DIR$/.idea/inspectionProfiles" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.DatabaseTest.findCat">
     <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Program" />
       <module name="JavaTech.lab2.main" />
@@ -122,8 +138,58 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DatabaseTest.addingCat" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":lab2:test" />
+            <option value="--tests" />
+            <option value="&quot;DatabaseTest.addingCat&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="DatabaseTest.findCat" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":lab2:test" />
+            <option value="--tests" />
+            <option value="&quot;DatabaseTest.findCat&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.DatabaseTest.findCat" />
+        <item itemvalue="Gradle.DatabaseTest.addingCat" />
         <item itemvalue="Application.Program" />
       </list>
     </recent_temporary>
@@ -146,7 +212,7 @@
       <workItem from="1710916003061" duration="3081000" />
       <workItem from="1710919347194" duration="4040000" />
       <workItem from="1710923478954" duration="3276000" />
-      <workItem from="1711007499967" duration="10599000" />
+      <workItem from="1711007499967" duration="18582000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: minor changes">
       <option name="closed" value="true" />
@@ -188,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711013733297</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: added many-to-many, one-to-many, + some methods in DAO">
+      <option name="closed" value="true" />
+      <created>1711018583187</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711018583187</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +274,7 @@
     <MESSAGE value="feat: added Service layer realization" />
     <MESSAGE value="feat: added program class for starting the program" />
     <MESSAGE value="feat: minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: minor changes" />
+    <MESSAGE value="feat: added many-to-many, one-to-many, + some methods in DAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added many-to-many, one-to-many, + some methods in DAO" />
   </component>
 </project>

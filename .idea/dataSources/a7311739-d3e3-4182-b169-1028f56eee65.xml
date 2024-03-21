@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>1346</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1422</IntrospectionStateNumber>
       <ServerVersion>16.2</ServerVersion>
       <StartupTime>1711009644</StartupTime>
       <TimeZones>true ACDT
@@ -801,7 +801,7 @@ false Zulu
 13452||10|C|G
 13452||-9223372036854775808|U|G
 13452||10|U|G</Grants>
-      <IntrospectionStateNumber>1346</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1422</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4226,8 +4226,8 @@ false Zulu
       <OwnerName>postgres</OwnerName>
     </schema>
     <schema id="263" parent="2" name="myschema">
-      <IntrospectionStateNumber>1346</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-03-21.10:50:43</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1422</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-03-21.13:51:02</LastIntrospectionLocalTimestamp>
       <ObjectId>16394</ObjectId>
       <StateNumber>749</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4249,29 +4249,29 @@ false Zulu
     </schema>
     <sequence id="266" parent="263" name="cats_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>17260</ObjectId>
+      <ObjectId>17393</ObjectId>
       <SequenceIdentity>1+50</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1332</StateNumber>
+      <StateNumber>1413</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <sequence id="267" parent="263" name="owners_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>17261</ObjectId>
+      <ObjectId>17394</ObjectId>
       <SequenceIdentity>1+50</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1333</StateNumber>
+      <StateNumber>1414</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <table id="268" parent="263" name="cat_friends">
-      <ObjectId>17262</ObjectId>
-      <StateNumber>1337</StateNumber>
+      <ObjectId>17395</ObjectId>
+      <StateNumber>1418</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="269" parent="263" name="cats">
-      <ObjectId>17265</ObjectId>
-      <StateNumber>1337</StateNumber>
+      <ObjectId>17398</ObjectId>
+      <StateNumber>1418</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4282,8 +4282,8 @@ false Zulu
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="271" parent="263" name="owners">
-      <ObjectId>17273</ObjectId>
-      <StateNumber>1339</StateNumber>
+      <ObjectId>17406</ObjectId>
+      <StateNumber>1420</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4291,95 +4291,95 @@ false Zulu
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1334</StateNumber>
+      <StateNumber>1415</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="273" parent="268" name="friend_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1334</StateNumber>
+      <StateNumber>1415</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="274" parent="268" name="fka9lcucexim3nxtot0h9q00g0m">
       <ColNames>cat_id</ColNames>
-      <ObjectId>17283</ObjectId>
-      <StateNumber>1338</StateNumber>
+      <ObjectId>17416</ObjectId>
+      <StateNumber>1419</StateNumber>
       <RefKeyColPositions>2</RefKeyColPositions>
-      <RefTableId>17265</RefTableId>
+      <RefTableId>17398</RefTableId>
     </foreign-key>
     <foreign-key id="275" parent="268" name="fkllxmeubbkoyiera02l1sufxaa">
       <ColNames>friend_id</ColNames>
-      <ObjectId>17278</ObjectId>
-      <StateNumber>1337</StateNumber>
+      <ObjectId>17411</ObjectId>
+      <StateNumber>1418</StateNumber>
       <RefKeyColPositions>2</RefKeyColPositions>
-      <RefTableId>17265</RefTableId>
+      <RefTableId>17398</RefTableId>
     </foreign-key>
     <check id="276" parent="269" name="cats_color_check">
       <ColNames>color</ColNames>
-      <ObjectId>17268</ObjectId>
+      <ObjectId>17401</ObjectId>
       <Predicate>(color &gt;= 0) AND (color &lt;= 4)</Predicate>
-      <StateNumber>1335</StateNumber>
+      <StateNumber>1416</StateNumber>
     </check>
     <column id="277" parent="269" name="color">
       <DasType>smallint|0s</DasType>
       <Position>1</Position>
-      <StateNumber>1335</StateNumber>
+      <StateNumber>1416</StateNumber>
       <TypeId>21</TypeId>
     </column>
     <column id="278" parent="269" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1335</StateNumber>
+      <StateNumber>1416</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="279" parent="269" name="owner_id">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
-      <StateNumber>1335</StateNumber>
+      <StateNumber>1416</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="280" parent="269" name="dateofbirth">
       <DasType>timestamp(6)|0s</DasType>
       <Position>4</Position>
-      <StateNumber>1335</StateNumber>
+      <StateNumber>1416</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="281" parent="269" name="breed">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
-      <StateNumber>1335</StateNumber>
+      <StateNumber>1416</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="282" parent="269" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
-      <StateNumber>1335</StateNumber>
+      <StateNumber>1416</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <foreign-key id="283" parent="269" name="fkc0phghv1jwbvelwan7pndwrei">
       <ColNames>owner_id</ColNames>
-      <ObjectId>17288</ObjectId>
-      <StateNumber>1339</StateNumber>
+      <ObjectId>17421</ObjectId>
+      <StateNumber>1420</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17273</RefTableId>
+      <RefTableId>17406</RefTableId>
     </foreign-key>
     <index id="284" parent="269" name="cats_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17271</ObjectId>
+      <ObjectId>17404</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1335</StateNumber>
+      <StateNumber>1416</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="285" parent="269" name="cats_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17272</ObjectId>
+      <ObjectId>17405</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1335</StateNumber>
-      <UnderlyingIndexId>17271</UnderlyingIndexId>
+      <StateNumber>1416</StateNumber>
+      <UnderlyingIndexId>17404</UnderlyingIndexId>
     </key>
     <column id="286" parent="270" name="cat_id">
       <DasType>integer|0s</DasType>
@@ -4399,36 +4399,36 @@ false Zulu
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1336</StateNumber>
+      <StateNumber>1417</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="289" parent="271" name="dateofbirth">
       <DasType>timestamp(6)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>1336</StateNumber>
+      <StateNumber>1417</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="290" parent="271" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
-      <StateNumber>1336</StateNumber>
+      <StateNumber>1417</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="291" parent="271" name="owners_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17276</ObjectId>
+      <ObjectId>17409</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1336</StateNumber>
+      <StateNumber>1417</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="292" parent="271" name="owners_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17277</ObjectId>
+      <ObjectId>17410</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1336</StateNumber>
-      <UnderlyingIndexId>17276</UnderlyingIndexId>
+      <StateNumber>1417</StateNumber>
+      <UnderlyingIndexId>17409</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

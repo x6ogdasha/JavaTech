@@ -1,7 +1,6 @@
 package DAO;
 
-import Controller.Cat;
-import Controller.Owner;
+import Entities.Owner;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -15,9 +14,6 @@ public class OwnerDAO {
     }
     public Owner findById(Integer id) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("labb2");
-        EntityManager entityManager = emf.createEntityManager();
-
         Owner owner = null;
 
         EntityTransaction transaction = entityManager.getTransaction();
@@ -30,11 +26,6 @@ public class OwnerDAO {
         } catch (Exception e) {
 
             if (transaction.isActive()) transaction.rollback();
-
-        } finally {
-
-            entityManager.close();
-            emf.close();
 
         }
 
@@ -56,8 +47,6 @@ public class OwnerDAO {
         }
     }
     public void updateOwner(Owner owner) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("labb2");
-        EntityManager entityManager = emf.createEntityManager();
 
         EntityTransaction transaction = null;
         try {
@@ -69,16 +58,11 @@ public class OwnerDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
-        } finally {
-
-            entityManager.close();
-            emf.close();
         }
     }
 
     public void deleteOwner(Owner owner) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("labb2");
-        EntityManager entityManager = emf.createEntityManager();
+
 
         EntityTransaction transaction = null;
         try {
@@ -90,10 +74,6 @@ public class OwnerDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
-        } finally {
-
-            entityManager.close();
-            emf.close();
         }
     }
 }

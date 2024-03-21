@@ -1,7 +1,7 @@
 package DAO;
 
-import Controller.Cat;
-import Controller.Owner;
+import Entities.Cat;
+import Entities.Owner;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -15,9 +15,7 @@ public class CatDAO {
     public CatDAO(EntityManager em) {
         entityManager = em;
     }
-    public Cat findById(Integer id) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("labb2");
-        EntityManager entityManager = emf.createEntityManager();
+    public Cat findByName(String name) {
 
         Cat cat = null;
 
@@ -25,16 +23,12 @@ public class CatDAO {
         try {
 
             transaction.begin();
-            cat = entityManager.find(Cat.class, id);
+            cat = entityManager.find(Cat.class, name);
             transaction.commit();
 
         } catch (Exception e) {
 
             if (transaction.isActive()) transaction.rollback();
-        } finally {
-
-            entityManager.close();
-            emf.close();
         }
 
         return cat;
@@ -54,8 +48,6 @@ public class CatDAO {
         }
     }
     public void updateCat(Cat cat) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("labb2");
-        EntityManager entityManager = emf.createEntityManager();
 
         EntityTransaction transaction = null;
         try {
@@ -67,15 +59,10 @@ public class CatDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
-        } finally {
-            entityManager.close();
-            emf.close();
         }
     }
 
     public void deleteCat(Cat cat) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("labb2");
-        EntityManager entityManager = emf.createEntityManager();
 
         EntityTransaction transaction = null;
         try {
@@ -87,9 +74,6 @@ public class CatDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
-        } finally {
-            entityManager.close();
-            emf.close();
         }
     }
 

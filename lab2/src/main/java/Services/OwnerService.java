@@ -1,6 +1,6 @@
 package Services;
 
-import Controller.Owner;
+import Entities.Owner;
 import DAO.OwnerDAO;
 
 public class OwnerService {

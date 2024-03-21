@@ -1,7 +1,7 @@
 package Services;
 
-import Controller.Cat;
-import Controller.Owner;
+import Entities.Cat;
+import Entities.Owner;
 import DAO.CatDAO;
 
 public class CatService {
@@ -12,9 +12,9 @@ public class CatService {
         this.catDao = catDao;
     }
 
-    public Cat findCat(Integer id) {
+    public Cat findCat(String name) {
 
-        return catDao.findById(id);
+        return catDao.findByName(name);
     }
 
     public void saveCat(Cat cat) {

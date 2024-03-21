@@ -1,6 +1,6 @@
-import Controller.Cat;
-import Controller.CatColor;
-import Controller.Owner;
+import Entities.Cat;
+import Entities.CatColor;
+import Entities.Owner;
 import DAO.CatDAO;
 import DAO.OwnerDAO;
 import Services.CatService;

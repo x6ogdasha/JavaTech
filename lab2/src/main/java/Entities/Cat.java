@@ -1,6 +1,7 @@
-package Controller;
+package Entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.Calendar;
 import java.util.List;
 
 @Setter
+@Getter
 @Entity
 @Table(name="cats")
 public class Cat {
