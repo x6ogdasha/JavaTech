@@ -17,10 +17,9 @@ public class Program {
     public static void main(String[] args) {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("labb2");
-        EntityManager entityManager = emf.createEntityManager();
 
-        OwnerDAO ownerDAO = new OwnerDAO(entityManager);
-        CatDAO catDAO = new CatDAO(entityManager);
+        OwnerDAO ownerDAO = new OwnerDAO(emf);
+        CatDAO catDAO = new CatDAO(emf);
         OwnerService ownerService = new OwnerService(ownerDAO);
         CatService catService = new CatService(catDAO);
 
@@ -44,7 +43,6 @@ public class Program {
         catService.addFriendship(cat, cat2);
 
         emf.close();
-        entityManager.close();
 
     }
 }

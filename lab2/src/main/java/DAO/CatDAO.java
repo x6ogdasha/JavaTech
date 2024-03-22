@@ -10,15 +10,16 @@ import jakarta.persistence.Persistence;
 
 public class CatDAO {
 
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("labb2");
 
-    private EntityManager entityManager;
-    public CatDAO(EntityManager em) {
-        entityManager = em;
+    private final EntityManagerFactory entityManagerFactory;
+    public CatDAO(EntityManagerFactory emf) {
+        entityManagerFactory = emf;
     }
     public Cat findByName(String name) {
 
         Cat cat = null;
-
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
 
@@ -29,6 +30,9 @@ public class CatDAO {
         } catch (Exception e) {
 
             if (transaction.isActive()) transaction.rollback();
+        } finally {
+
+            entityManager.close();
         }
 
         return cat;
@@ -36,6 +40,7 @@ public class CatDAO {
 
     public void saveCat(Cat cat) {
 
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();;
         try {
             transaction.begin();
@@ -45,9 +50,12 @@ public class CatDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
+        } finally {
+            entityManager.close();
         }
     }
     public void updateCat(Cat cat) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         EntityTransaction transaction = null;
         try {
@@ -59,11 +67,14 @@ public class CatDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
+        } finally {
+            entityManager.close();
         }
     }
 
     public void deleteCat(Cat cat) {
 
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = null;
         try {
             transaction = entityManager.getTransaction();
@@ -74,11 +85,14 @@ public class CatDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
+        } finally {
+            entityManager.close();
         }
     }
 
     public void addFriendship(Cat cat, Cat anotherCat) {
 
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();;
         try {
             transaction.begin();
@@ -89,10 +103,14 @@ public class CatDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
+        } finally {
+            entityManager.close();
         }
 
     }
     public void updateOwner(Cat cat, Owner owner) {
+
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();;
         try {
             transaction.begin();
@@ -103,6 +121,8 @@ public class CatDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
+        } finally {
+            entityManager.close();
         }
     }
 }

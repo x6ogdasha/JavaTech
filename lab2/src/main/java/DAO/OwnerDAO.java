@@ -8,14 +8,14 @@ import jakarta.persistence.Persistence;
 
 public class OwnerDAO {
 
-    private EntityManager entityManager;
-    public OwnerDAO(EntityManager em) {
-        entityManager = em;
+    private final EntityManagerFactory entityManagerFactory;
+    public OwnerDAO(EntityManagerFactory emf) {
+        entityManagerFactory = emf;
     }
     public Owner findById(Integer id) {
 
         Owner owner = null;
-
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
 
@@ -27,6 +27,8 @@ public class OwnerDAO {
 
             if (transaction.isActive()) transaction.rollback();
 
+        } finally {
+            entityManager.close();
         }
 
         return owner;
@@ -34,7 +36,7 @@ public class OwnerDAO {
 
     public void saveOwner(Owner owner) {
 
-
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();;
         try {
             transaction.begin();
@@ -44,10 +46,13 @@ public class OwnerDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
+        } finally {
+            entityManager.close();
         }
     }
     public void updateOwner(Owner owner) {
 
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = null;
         try {
             transaction = entityManager.getTransaction();
@@ -58,12 +63,14 @@ public class OwnerDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
+        } finally {
+            entityManager.close();
         }
     }
 
     public void deleteOwner(Owner owner) {
 
-
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = null;
         try {
             transaction = entityManager.getTransaction();
@@ -74,6 +81,8 @@ public class OwnerDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
+        } finally {
+            entityManager.close();
         }
     }
 }
