@@ -7,10 +7,12 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.30/f195ee86e6c896ea47a1d39defbe20eb59cd149d/lombok-1.18.30.jar" />
         </processorPath>
-        <module name="JavaTech.lab2.main" />
+        <module name="JavaTech.lab2.services.test" />
         <module name="JavaTech.lab1.test" />
+        <module name="JavaTech.lab2.dao.main" />
         <module name="JavaTech.lab1.main" />
-        <module name="JavaTech.lab2.test" />
+        <module name="JavaTech.lab2.services.main" />
+        <module name="JavaTech.lab2.dao.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="21" />
