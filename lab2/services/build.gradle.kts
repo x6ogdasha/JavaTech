@@ -1,5 +1,7 @@
 plugins {
     id("java")
+    id("org.springframework.boot") version "3.2.4"
+    id("io.spring.dependency-management") version "1.1.4"
 }
 
 group = "org.example"
@@ -15,9 +17,9 @@ dependencies {
 
     testImplementation("org.mockito:mockito-core:5.8.0")
 
-    implementation("org.hibernate.orm:hibernate-core:6.4.4.Final")
-    implementation("org.postgresql:postgresql:42.7.2")
-    implementation("jakarta.transaction:jakarta.transaction-api")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     compileOnly("org.projectlombok:lombok:1.18.30")
     annotationProcessor("org.projectlombok:lombok:1.18.30")
