@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 @RestController
 public class CatController {
-    private final CatRepository catRepository;
+    private final CatService catService;
 
     @Autowired
-    public CatController(CatRepository catRepository) {
-        this.catRepository = catRepository;
+    public CatController(CatService catService) {
+        this.catService = catService;
     }
 
     @GetMapping("/cats")
     public List<Cat> getAllCats() {
-        return catRepository.findAll();
 
+        return catService.getAllCats();
     }
 }
