@@ -19,7 +19,7 @@ public class OwnerService {
         return ownerRepository.findById(id);
     }
 
-    public List<Owner> findAllOwners() {
+    public List<Owner> getAllOwners() {
 
         return ownerRepository.findAll();
     }

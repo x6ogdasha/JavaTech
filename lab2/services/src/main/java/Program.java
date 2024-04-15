@@ -3,20 +3,20 @@ import Entities.CatColor;
 import Entities.Owner;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
+@SpringBootApplication
 public class Program {
 
     public static void main(String[] args) {
+        ConfigurableApplicationContext context = SpringApplication.run(Program.class, args);
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("labb2");
-
-        OwnerDAO ownerDAO = new OwnerDAO(emf);
-        CatDAO catDAO = new CatDAO(emf);
-        OwnerService ownerService = new OwnerService(ownerDAO);
-        CatService catService = new CatService(catDAO);
+        OwnerService ownerService = context.getBean(OwnerService.class);
+        CatService catService = context.getBean(CatService.class);
 
 
         Calendar date = new GregorianCalendar(2004, Calendar.FEBRUARY, 19);
@@ -32,12 +32,12 @@ public class Program {
 
         catService.saveCat(cat);
         catService.saveCat(cat2);
-        catService.updateOwner(cat, owner);
-        catService.updateOwner(cat2, owner2);
+        //catService.updateOwner(cat, owner);
+        //catService.updateOwner(cat2, owner2);
 
-        catService.addFriendship(cat, cat2);
+        //catService.addFriendship(cat, cat2);
 
-        emf.close();
+        context.close();
 
     }
 }
