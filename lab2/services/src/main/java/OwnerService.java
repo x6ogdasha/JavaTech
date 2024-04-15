@@ -1,31 +1,42 @@
 import Entities.Owner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
+@Service
 public class OwnerService {
 
-    private final OwnerDAO ownerDao;
-
-    public OwnerService(OwnerDAO ownerDao) {
-        this.ownerDao = ownerDao;
+    private final OwnerRepository ownerRepository;
+    @Autowired
+    public OwnerService(OwnerRepository ownerRepository) {
+        this.ownerRepository = ownerRepository;
     }
 
-    public Owner findOwner(Integer id) {
+    public Optional<Owner> findOwner(Long id) {
 
-        return ownerDao.findById(id);
+        return ownerRepository.findById(id);
+    }
+
+    public List<Owner> findAllOwners() {
+
+        return ownerRepository.findAll();
     }
 
     public void saveOwner(Owner owner) {
 
-        ownerDao.saveOwner(owner);
+        ownerRepository.save(owner);
     }
 
     public void deleteOwner(Owner owner) {
 
-        ownerDao.deleteOwner(owner);
+        ownerRepository.delete(owner);
     }
 
     public void updateOwner(Owner owner) {
 
-        ownerDao.updateOwner(owner);
+        ownerRepository.save(owner);
     }
 
 

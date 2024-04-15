@@ -1,40 +1,50 @@
 import Entities.Cat;
 import Entities.Owner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public class CatService {
 
-    private final CatDAO catDao;
+    private final CatRepository catRepository;
 
-    public CatService(CatDAO catDao) {
-        this.catDao = catDao;
+    @Autowired
+    public CatService(CatRepository catRepository) {
+        this.catRepository = catRepository;
     }
 
-    public Cat findCat(String name) {
+//    public Cat findCat(String name) {
+//
+//        return catRepository.findByName(name);
+//    }
+    public List<Cat> getAllCats() {
 
-        return catDao.findByName(name);
+        return catRepository.findAll();
     }
 
     public void saveCat(Cat cat) {
 
-        catDao.saveCat(cat);
+        catRepository.save(cat);
     }
 
     public void deleteCat(Cat cat) {
 
-        catDao.deleteCat(cat);
+        catRepository.delete(cat);
     }
 
     public void updateCat(Cat cat) {
 
-        catDao.updateCat(cat);
+        catRepository.save(cat);
     }
 
-    public void addFriendship(Cat cat, Cat anotherCat) {
-
-        catDao.addFriendship(cat, anotherCat);
-    }
-    public void updateOwner(Cat cat, Owner owner) {
-
-        catDao.updateOwner(cat, owner);
-    }
+//    public void addFriendship(Cat cat, Cat anotherCat) {
+//
+//        catDao.addFriendship(cat, anotherCat);
+//    }
+//    public void updateOwner(Cat cat, Owner owner) {
+//
+//        catDao.updateOwner(cat, owner);
+//    }
 }
