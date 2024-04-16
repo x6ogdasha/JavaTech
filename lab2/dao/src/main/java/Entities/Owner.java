@@ -1,16 +1,21 @@
 package Entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+@Getter
+@Setter
 @Entity
 @Table(name = "owners")
 public class Owner {
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
     @Column
     private String name;
     @Column

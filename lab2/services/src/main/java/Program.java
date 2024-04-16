@@ -1,18 +1,19 @@
 import Entities.Cat;
 import Entities.CatColor;
 import Entities.Owner;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 @SpringBootApplication
+@ComponentScan(basePackages = "ru.bkitaev")
 public class Program {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         ConfigurableApplicationContext context = SpringApplication.run(Program.class, args);
 
         OwnerService ownerService = context.getBean(OwnerService.class);
@@ -20,14 +21,14 @@ public class Program {
 
 
         Calendar date = new GregorianCalendar(2004, Calendar.FEBRUARY, 19);
-        Owner owner  = new Owner("Bogdan", date);
-        Owner owner2  = new Owner("Kolya", date);
+        Owner owner  = new Owner("BOOOOOgdan", date);
+        Owner owner2  = new Owner("K000000lya", date);
 
         ownerService.saveOwner(owner);
 
         Calendar dateOfCat = new GregorianCalendar(2022, Calendar.MARCH, 9);
-        Cat cat = new Cat("Murzik", dateOfCat, "dvornayga", CatColor.multi);
-        Cat cat2 = new Cat("Vasya", dateOfCat, "cool", CatColor.white);
+        Cat cat = new Cat("M0000rzik", dateOfCat, "dvornayga", CatColor.multi);
+        Cat cat2 = new Cat("V9999sya", dateOfCat, "cool", CatColor.white);
 
 
         catService.saveCat(cat);
