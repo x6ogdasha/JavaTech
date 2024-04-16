@@ -1,5 +1,5 @@
-import Entities.Cat;
-import Entities.CatColor;
+import Lab3.Entities.Cat;
+import Lab3.Entities.CatColor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

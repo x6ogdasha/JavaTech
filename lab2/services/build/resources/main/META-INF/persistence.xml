@@ -5,8 +5,8 @@
 
 <persistence-unit name="labb2">
     <description>Hibernate EntityManager Demo</description>
-    <class>Entities.Owner</class>
-    <class>Entities.Cat</class>
+    <class>Lab3.Entities.Owner</class>
+    <class>Lab3.Entities.Cat</class>
     <properties>
         <!-- Database connection settings -->
         <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
