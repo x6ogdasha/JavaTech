@@ -31,7 +31,6 @@ dependencies {
 
     implementation(project(":lab2:dao"))
     implementation(project(":lab2:services"))
-//    implementation(project(":Services"))
 
 }
 tasks.withType<JavaCompile> {

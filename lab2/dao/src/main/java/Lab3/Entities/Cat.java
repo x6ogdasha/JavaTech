@@ -1,31 +1,32 @@
-package Entities;
+package Lab3.Entities;
 
 import jakarta.persistence.*;
 
+import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 @Setter
+@Getter
 @Entity
 @Table(name="cats")
 public class Cat {
 
     @Id
     @GeneratedValue
-    private Long id;
+    Long id;
     @Column
-    private String name;
+    String name;
     @Column
-    private Calendar dateOfBirth;
+    Calendar dateOfBirth;
     @Column
-    private String breed;
+    String breed;
     @Column
-    private CatColor color;
+    CatColor color;
     @ManyToOne(cascade = CascadeType.ALL)
-    private Owner owner;
+    Owner owner;
 
     @ManyToMany
     @JoinTable(
@@ -33,7 +34,7 @@ public class Cat {
             joinColumns = @JoinColumn(name = "cat_id"),
             inverseJoinColumns = @JoinColumn(name = "friend_id")
     )
-    private List<Cat> friends = new ArrayList<>();
+    List<Cat> friends = new ArrayList<>();
 
     public Cat(){}
 

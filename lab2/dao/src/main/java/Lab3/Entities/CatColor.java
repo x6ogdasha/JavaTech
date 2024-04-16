@@ -1,4 +1,4 @@
-package Entities;
+package Lab3.Entities;
 
 public enum CatColor {
     black,

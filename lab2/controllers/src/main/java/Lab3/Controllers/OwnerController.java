@@ -1,5 +1,7 @@
-import Entities.Cat;
-import Entities.Owner;
+package Lab3.Controllers;
+
+import Lab3.Entities.Owner;
+import Lab3.Services.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
