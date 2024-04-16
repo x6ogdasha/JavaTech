@@ -4,7 +4,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
 }
 
-group = "org.example"
+group = "ru.bkitaev"
 version = "unspecified"
 
 repositories {
@@ -12,19 +12,19 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-
-    testImplementation("org.mockito:mockito-core:5.8.0")
-
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
 
-    compileOnly("org.projectlombok:lombok:1.18.30")
-    annotationProcessor("org.projectlombok:lombok:1.18.30")
-    testCompileOnly("org.projectlombok:lombok:1.18.30")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
+    // runtimeOnly("org.postgresql:postgresql")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+   // implementation("org.hibernate:hibernate-core:6.4.4.Final")
+    // https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
+    //implementation("javax.xml.bind:jaxb-api:2.3.1")
+
+    // https://mvnrepository.com/artifact/org.javassist/javassist
+    //implementation("org.javassist:javassist:3.30.2-GA")
+    //implementation(project(":lab2:controllers"))
     implementation(project(":lab2:dao"))
 }
 
