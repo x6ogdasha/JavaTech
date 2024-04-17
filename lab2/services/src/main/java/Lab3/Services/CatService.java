@@ -1,5 +1,6 @@
 package Lab3.Services;
 
+import Lab3.Dto.CatDto;
 import Lab3.Entities.Cat;
 import Lab3.Repositories.CatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,30 +19,31 @@ public class CatService {
         this.catRepository = catRepository;
     }
 
-//    public Cat findCat(String name) {
-//
-//        return catRepository.findByName(name);
-//    }
-    public List<Cat> getAllCats() {
+    public Cat findCat(Long id) {
 
-        return catRepository.findAll();
+        Optional<Cat> cat = catRepository.findById(id);
+        if (cat.isEmpty()) return null;
+        Cat foundCat = cat.get();
+        return foundCat;
     }
+    public void saveCat(CatDto cat) {
 
-    public void saveCat(Cat cat) {
-        Cat newCat = new Cat(cat.getName(),cat.getDateOfBirth(),cat.getBreed(),cat.getColor());
-        catRepository.save(cat);
+        Cat newCat = new Cat(cat.name,cat.dateOfBirth,cat.breed,cat.color);
+        catRepository.save(newCat);
     }
 
     public void deleteCat(Long id) {
+
         Optional<Cat> deletingCat = catRepository.findById(id);
         if (deletingCat.isEmpty()) return;
         Cat cat = deletingCat.get();
         catRepository.delete(cat);
     }
 
-    public void updateCat(Cat cat) {
+    public void updateCat(CatDto cat) {
 
-        catRepository.save(cat);
+        Cat newCat = new Cat(cat.name,cat.dateOfBirth,cat.breed,cat.color);
+        catRepository.save(newCat);
     }
 
 //    public void addFriendship(Cat cat, Cat anotherCat) {

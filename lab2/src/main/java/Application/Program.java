@@ -1,5 +1,7 @@
 package Application;
 
+import Lab3.Dto.CatDto;
+import Lab3.Dto.OwnerDto;
 import Lab3.Entities.Cat;
 import Lab3.Entities.CatColor;
 import Lab3.Entities.Owner;
@@ -22,15 +24,15 @@ public class Program {
         CatService catService = context.getBean(CatService.class);
 
         Calendar date = new GregorianCalendar(2004, Calendar.FEBRUARY, 19);
-        Owner owner  = new Owner("Bogdan", date);
-        Owner owner2  = new Owner("Kolya", date);
+        OwnerDto owner  = new OwnerDto("Bogdan", date, null);
+        OwnerDto owner2  = new OwnerDto("Kolya", date, null);
 
         ownerService.saveOwner(owner);
         ownerService.saveOwner(owner2);
 
         Calendar dateOfCat = new GregorianCalendar(2022, Calendar.MARCH, 9);
-        Cat cat = new Cat("MuUUUUUrzik", dateOfCat, "dvornayga", CatColor.multi);
-        Cat cat2 = new Cat("Vasya", dateOfCat, "cool", CatColor.white);
+        CatDto cat = new CatDto("ZuUUUUUrzik", dateOfCat, "dvornayga", CatColor.multi, null, null);
+        CatDto cat2 = new CatDto("Vasya", dateOfCat, "cool", CatColor.white, null, null);
 
 
         catService.saveCat(cat);

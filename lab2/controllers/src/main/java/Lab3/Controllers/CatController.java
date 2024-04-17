@@ -15,12 +15,6 @@ public class CatController {
         this.catService = catService;
     }
 
-    @GetMapping("/cats")
-    public List<Cat> getAllCats() {
-
-        return catService.getAllCats();
-    }
-
     @GetMapping("/")
     public String test(){
         return "Hello";

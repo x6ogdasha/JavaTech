@@ -1,5 +1,7 @@
 package Lab3.Services;
 
+import Lab3.Dto.OwnerDto;
+import Lab3.Entities.Cat;
 import Lab3.Entities.Owner;
 import Lab3.Repositories.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,30 +19,32 @@ public class OwnerService {
         this.ownerRepository = ownerRepository;
     }
 
-    public Optional<Owner> findOwner(Long id) {
+    public Owner findOwner(Long id) {
 
-        return ownerRepository.findById(id);
+        Optional<Owner> owner = ownerRepository.findById(id);
+        if (owner.isEmpty()) return null;
+        Owner foundOwner = owner.get();
+        return foundOwner;
     }
 
-    public List<Owner> getAllOwners() {
+    public void saveOwner(OwnerDto owner) {
 
-        return ownerRepository.findAll();
+        Owner newOwner = new Owner(owner.name,owner.dateOfBirth);
+        ownerRepository.save(newOwner);
     }
 
-    public void saveOwner(Owner owner) {
+    public void deleteOwner(Long id) {
 
-        ownerRepository.save(owner);
+        Optional<Owner> owner = ownerRepository.findById(id);
+        if (owner.isEmpty()) return;
+        Owner foundOwner = owner.get();
+        ownerRepository.delete(foundOwner);
     }
 
-    public void deleteOwner(Owner owner) {
+    public void updateOwner(OwnerDto owner) {
 
-        ownerRepository.delete(owner);
-    }
-
-    public void updateOwner(Owner owner) {
-
-        ownerRepository.save(owner);
-    }
+        Owner newOwner = new Owner(owner.name,owner.dateOfBirth);
+        ownerRepository.save(newOwner);    }
 
 
 }
