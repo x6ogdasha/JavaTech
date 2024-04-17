@@ -19,12 +19,12 @@ public class CatService {
         this.catRepository = catRepository;
     }
 
-    public Cat findCat(Long id) {
+    public CatDto findCat(Long id) {
 
         Optional<Cat> cat = catRepository.findById(id);
         if (cat.isEmpty()) return null;
         Cat foundCat = cat.get();
-        return foundCat;
+        return new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(), foundCat.getColor(), foundCat.getOwner(), foundCat.getFriends());
     }
     public void saveCat(CatDto cat) {
 

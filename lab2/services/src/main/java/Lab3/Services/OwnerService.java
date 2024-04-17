@@ -19,12 +19,12 @@ public class OwnerService {
         this.ownerRepository = ownerRepository;
     }
 
-    public Owner findOwner(Long id) {
+    public OwnerDto findOwner(Long id) {
 
         Optional<Owner> owner = ownerRepository.findById(id);
         if (owner.isEmpty()) return null;
         Owner foundOwner = owner.get();
-        return foundOwner;
+        return new OwnerDto(foundOwner.getName(), foundOwner.getDateOfBirth(), foundOwner.getCats());
     }
 
     public void saveOwner(OwnerDto owner) {
