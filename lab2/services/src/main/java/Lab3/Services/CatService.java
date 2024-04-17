@@ -27,7 +27,7 @@ public class CatService {
         return catRepository.findAll();
     }
 
-    public void addCat(Cat cat) {
+    public void saveCat(Cat cat) {
         Cat newCat = new Cat(cat.getName(),cat.getDateOfBirth(),cat.getBreed(),cat.getColor());
         catRepository.save(cat);
     }
