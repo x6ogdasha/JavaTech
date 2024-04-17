@@ -4,10 +4,12 @@ import Lab3.Entities.Cat;
 import Lab3.Entities.CatColor;
 import Lab3.Entities.Owner;
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 
 import java.util.Calendar;
 import java.util.List;
 @AllArgsConstructor
+@Setter
 public class CatDto {
     public String name;
     public Calendar dateOfBirth;
