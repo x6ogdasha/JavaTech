@@ -1,7 +1,6 @@
 package Lab3.Controllers;
 
 import Lab3.Dto.CatDto;
-import Lab3.Entities.Cat;
 import Lab3.Services.CatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,7 +8,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 @RestController
 @RequestMapping("/cat")
 public class CatController {
@@ -34,9 +32,9 @@ public class CatController {
     }
 
     @PutMapping
-    public ResponseEntity<String> modifyCat(@RequestBody CatDto cat) {
+    public ResponseEntity<String> updateCat(@RequestParam Long id, @RequestBody CatDto catDto) {
 
-        catService.updateCat(cat);
+        catService.updateCat(id, catDto);
         return ResponseEntity.ok("Cat modified successfully");
     }
 
@@ -45,5 +43,11 @@ public class CatController {
 
         catService.deleteCat(id);
         return ResponseEntity.ok("Cat deleted successfully");
+    }
+    @PutMapping("/newOwner")
+    public ResponseEntity<String> updateOwner(@RequestParam Long id, @RequestParam Long ownerId) {
+
+        String newOwner = catService.updateOwner(id, ownerId);
+        return ResponseEntity.ok("Owner updated successfully. New owner: " + newOwner);
     }
 }

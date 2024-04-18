@@ -31,7 +31,7 @@ public class Program {
         ownerService.saveOwner(owner2);
 
         Calendar dateOfCat = new GregorianCalendar(2022, Calendar.MARCH, 9);
-        CatDto cat = new CatDto("ZuUUUUUrzik", dateOfCat, "dvornayga", CatColor.multi, null, null);
+        CatDto cat = new CatDto("Murzik", dateOfCat, "dvornayga", CatColor.multi, null, null);
         CatDto cat2 = new CatDto("Vasya", dateOfCat, "cool", CatColor.white, null, null);
 
 

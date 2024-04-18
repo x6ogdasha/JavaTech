@@ -1,8 +1,12 @@
 package Lab3.Services;
 
 import Lab3.Dto.CatDto;
+import Lab3.Dto.OwnerDto;
 import Lab3.Entities.Cat;
+import Lab3.Entities.CatColor;
+import Lab3.Entities.Owner;
 import Lab3.Repositories.CatRepository;
+import Lab3.Repositories.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +17,12 @@ import java.util.Optional;
 public class CatService {
 
     private final CatRepository catRepository;
+    private final OwnerRepository ownerRepository;
 
     @Autowired
-    public CatService(CatRepository catRepository) {
+    public CatService(CatRepository catRepository, OwnerRepository ownerRepository) {
         this.catRepository = catRepository;
+        this.ownerRepository = ownerRepository;
     }
 
     public CatDto findCat(Long id) {
@@ -40,18 +46,33 @@ public class CatService {
         catRepository.delete(cat);
     }
 
-    public void updateCat(CatDto cat) {
+    public void updateCat(Long id, CatDto catDto) {
 
-        Cat newCat = new Cat(cat.name,cat.dateOfBirth,cat.breed,cat.color);
-        catRepository.save(newCat);
+        Optional<Cat> catInDatabase = catRepository.findById(id);
+        if (catInDatabase.isEmpty()) return;
+        Cat foundCat = catInDatabase.get();
+        foundCat.setName(catDto.name);
+        foundCat.setDateOfBirth(catDto.dateOfBirth);
+        foundCat.setBreed(catDto.breed);
+        foundCat.setColor(catDto.color);
+        foundCat.setOwner(catDto.owner);
+        foundCat.setFriends(catDto.friends);
+        catRepository.save(foundCat);
     }
 
 //    public void addFriendship(Cat cat, Cat anotherCat) {
 //
 //        catDao.addFriendship(cat, anotherCat);
 //    }
-//    public void updateOwner(Cat cat, Owner owner) {
-//
-//        catDao.updateOwner(cat, owner);
-//    }
+    public String updateOwner(Long id, Long ownerId) {
+
+        Optional<Cat> catInDatabase = catRepository.findById(id);
+        Optional<Owner> ownerInDatabase = ownerRepository.findById(ownerId);
+        if (catInDatabase.isEmpty() || ownerInDatabase.isEmpty()) return null;
+        Cat foundCat = catInDatabase.get();
+        Owner foundOwner = ownerInDatabase.get();
+        foundCat.setOwner(foundOwner);
+        catRepository.save(foundCat);
+        return foundOwner.getName();
+    }
 }
