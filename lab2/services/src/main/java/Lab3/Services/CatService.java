@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CatService {
@@ -30,7 +31,14 @@ public class CatService {
         Optional<Cat> cat = catRepository.findById(id);
         if (cat.isEmpty()) return null;
         Cat foundCat = cat.get();
-        return new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(), foundCat.getColor(), foundCat.getOwner(), foundCat.getFriends());
+
+        Long ownerId = null;
+        if (foundCat.getOwner() != null) ownerId = foundCat.getOwner().getId();
+
+        List<Long> friendsId = null;
+        if (foundCat.getFriends() != null) friendsId = foundCat.getFriends().stream().map(Cat::getId).toList();
+
+        return new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(), foundCat.getColor(), ownerId, friendsId);
     }
     public void saveCat(CatDto cat) {
 
@@ -55,15 +63,20 @@ public class CatService {
         foundCat.setDateOfBirth(catDto.dateOfBirth);
         foundCat.setBreed(catDto.breed);
         foundCat.setColor(catDto.color);
-        foundCat.setOwner(catDto.owner);
-        foundCat.setFriends(catDto.friends);
         catRepository.save(foundCat);
     }
 
-//    public void addFriendship(Cat cat, Cat anotherCat) {
-//
-//        catDao.addFriendship(cat, anotherCat);
-//    }
+    public void addFriendship(Long id, Long friendId) {
+
+      //  Cat newFriend = new Cat(anotherCat.name, anotherCat.dateOfBirth, anotherCat.breed, anotherCat.color);
+
+        Optional<Cat> catInDatabase = catRepository.findById(id);
+        Optional<Cat> friendCatInDatabase = catRepository.findById(friendId);
+        if (catInDatabase.isEmpty() || friendCatInDatabase.isEmpty()) return;
+        catInDatabase.get().getFriends().add(friendCatInDatabase.get());
+
+        catRepository.save(catInDatabase.get());
+    }
     public String updateOwner(Long id, Long ownerId) {
 
         Optional<Cat> catInDatabase = catRepository.findById(id);
@@ -75,4 +88,12 @@ public class CatService {
         catRepository.save(foundCat);
         return foundOwner.getName();
     }
+
+    public OwnerDto convertToDto(Optional<Owner> owner) {
+
+        if (owner.isEmpty()) return null;
+        Owner foundOwner = owner.get();
+        return new OwnerDto(foundOwner.getName(), foundOwner.getDateOfBirth(), foundOwner.getCats());
+     }
+
 }

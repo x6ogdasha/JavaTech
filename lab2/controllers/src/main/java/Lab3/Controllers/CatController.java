@@ -50,4 +50,12 @@ public class CatController {
         String newOwner = catService.updateOwner(id, ownerId);
         return ResponseEntity.ok("Owner updated successfully. New owner: " + newOwner);
     }
+    @PutMapping("/newFriend")
+    public ResponseEntity<String> addFriendship(@RequestParam Long id, @RequestParam Long friendId) {
+
+        catService.addFriendship(id, friendId);
+        catService.addFriendship(friendId, id);
+
+        return ResponseEntity.ok("Friendship created");
+    }
 }
