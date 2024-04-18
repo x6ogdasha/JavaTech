@@ -28,20 +28,20 @@ public class OwnerController {
     }
 
     @PostMapping
-    public void addHost(@RequestBody OwnerDto owner) {
+    public void addOwner(@RequestBody OwnerDto owner) {
 
         ownerService.saveOwner(owner);
     }
 
     @PutMapping
-    public void modifyHost(@PathVariable String name, @RequestBody OwnerDto owner) {
+    public void updateOwner(@PathVariable String name, @RequestBody OwnerDto owner) {
 
         owner.setName(name);
         ownerService.updateOwner(owner);
     }
 
     @DeleteMapping
-    public void deleteHost(@PathVariable Long id) {
+    public void deleteOwner(@PathVariable Long id) {
 
         ownerService.deleteOwner(id);
     }
