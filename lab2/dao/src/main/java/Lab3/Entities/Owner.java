@@ -20,6 +20,7 @@ public class Owner {
     @Column
     private Calendar dateOfBirth;
     @OneToMany(mappedBy = "owner")
+    //@JsonView(Views.DetailedView.class)
     private List<Cat> cats = new ArrayList<>();
 
     public Owner(){

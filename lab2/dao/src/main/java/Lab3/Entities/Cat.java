@@ -45,10 +45,4 @@ public class Cat {
         this.color = color;
     }
 
-    public void addFriend(Cat cat){
-
-        friends.add(cat);
-    }
-
-
 }
