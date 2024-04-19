@@ -1,12 +1,15 @@
 package Lab3.Controllers;
 
 import Lab3.Dto.CatDto;
+import Lab3.Entities.CatColor;
 import Lab3.Services.CatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/cat")
@@ -57,5 +60,11 @@ public class CatController {
         catService.addFriendship(friendId, id);
 
         return ResponseEntity.ok("Friendship created");
+    }
+
+    @GetMapping("/byColor")
+    public ResponseEntity<List<CatDto>> findCatByColor(@RequestParam CatColor color) {
+
+        return ResponseEntity.ok(catService.findCatsByColor(color));
     }
 }

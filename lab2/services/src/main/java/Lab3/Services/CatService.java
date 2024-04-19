@@ -10,6 +10,7 @@ import Lab3.Repositories.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -88,6 +89,26 @@ public class CatService {
         catRepository.save(foundCat);
         return foundOwner.getName();
     }
+
+    public List<CatDto> findCatsByColor(CatColor color) {
+
+        List<Cat> cats = catRepository.findByColor(color);
+        List<CatDto> catsDto = new ArrayList<>();
+
+        for (Cat foundCat : cats) {
+
+            Long ownerId = null;
+            if (foundCat.getOwner() != null) ownerId = foundCat.getOwner().getId();
+
+            List<Long> friendsId = null;
+            if (foundCat.getFriends() != null) friendsId = foundCat.getFriends().stream().map(Cat::getId).toList();
+
+            catsDto.add(new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(),foundCat.getColor(),ownerId, friendsId));
+        }
+
+        return catsDto;
+    }
+
 
     public OwnerDto convertToDto(Optional<Owner> owner) {
 
