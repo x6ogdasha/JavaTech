@@ -67,4 +67,10 @@ public class CatController {
 
         return ResponseEntity.ok(catService.findCatsByColor(color));
     }
+
+    @GetMapping("/")
+    public ResponseEntity<String> hello() {
+
+        return ResponseEntity.ok("Hello");
+    }
 }
