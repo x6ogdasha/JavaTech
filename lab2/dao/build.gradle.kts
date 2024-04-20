@@ -1,31 +1,43 @@
 plugins {
     id("java")
+    id("org.springframework.boot") version "3.2.4" apply false
+    id("io.spring.dependency-management") version "1.1.4"
 }
 
-group = "org.example"
+group = "ru.bkitaev"
 version = "unspecified"
 
 repositories {
     mavenCentral()
 }
+dependencyManagement {
+    imports {
+        mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+    }
+}
+
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    runtimeOnly("org.postgresql:postgresql")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
+//    implementation("org.hibernate:hibernate-core:6.4.4.Final")
+//    // https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
+//    implementation("javax.xml.bind:jaxb-api:2.3.1")
+//
+//    // https://mvnrepository.com/artifact/org.javassist/javassist
+//    implementation("org.javassist:javassist:3.30.2-GA")
 
-    testImplementation("org.mockito:mockito-core:5.8.0")
-
-    implementation("org.hibernate.orm:hibernate-core:6.4.4.Final")
-    implementation("org.postgresql:postgresql:42.7.2")
-    implementation("jakarta.transaction:jakarta.transaction-api")
-
-    compileOnly("org.projectlombok:lombok:1.18.30")
-    annotationProcessor("org.projectlombok:lombok:1.18.30")
-    testCompileOnly("org.projectlombok:lombok:1.18.30")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
-
+    //implementation(project(":lab2:dao"))
+    //implementation(project(":lab2:services"))
 //    implementation(project(":Services"))
 
+}
+tasks.withType<JavaCompile> {
+    options.compilerArgs.add("-parameters")
 }
 
 tasks.test {
