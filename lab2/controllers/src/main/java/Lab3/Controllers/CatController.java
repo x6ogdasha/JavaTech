@@ -1,8 +1,10 @@
 package Lab3.Controllers;
 
 import Lab3.Dto.CatDto;
+import Lab3.Dto.View.BasicView;
 import Lab3.Entities.CatColor;
 import Lab3.Services.CatService;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,12 +24,14 @@ public class CatController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @JsonView(BasicView.class)
     public ResponseEntity<CatDto> getCat(@RequestParam Long id) {
 
         CatDto cat = catService.findCat(id);
         return ResponseEntity.ok(cat);
     }
     @PostMapping
+    @JsonView(BasicView.class)
     public ResponseEntity<String> addCat(@RequestBody CatDto cat) {
 
         catService.saveCat(cat);
@@ -68,7 +72,7 @@ public class CatController {
         return ResponseEntity.ok(catService.findCatsByColor(color));
     }
 
-    @GetMapping("/")
+    @GetMapping("/hello")
     public ResponseEntity<String> hello() {
 
         return ResponseEntity.ok("Hello");
