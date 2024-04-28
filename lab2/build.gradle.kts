@@ -29,6 +29,7 @@ dependencies {
     implementation(project(":lab2:controllers"))
     implementation(project(":lab2:services"))
 
+
 }
 
 tasks.test {

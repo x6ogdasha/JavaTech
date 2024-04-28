@@ -29,6 +29,8 @@ dependencies {
 //    // https://mvnrepository.com/artifact/org.javassist/javassist
 //    implementation("org.javassist:javassist:3.30.2-GA")
 
+
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
     implementation(project(":lab2:dao"))
     implementation(project(":lab2:services"))
 

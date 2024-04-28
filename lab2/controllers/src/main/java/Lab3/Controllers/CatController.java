@@ -32,38 +32,32 @@ public class CatController {
     }
     @PostMapping
     @JsonView(BasicView.class)
-    public ResponseEntity<String> addCat(@RequestBody CatDto cat) {
+    public void addCat(@RequestBody CatDto cat) {
 
         catService.saveCat(cat);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Cat added successfully");
     }
 
     @PutMapping
-    public ResponseEntity<String> updateCat(@RequestParam Long id, @RequestBody CatDto catDto) {
+    public void updateCat(@RequestParam Long id, @RequestBody CatDto catDto) {
 
         catService.updateCat(id, catDto);
-        return ResponseEntity.ok("Cat modified successfully");
     }
 
     @DeleteMapping
-    public ResponseEntity<String> deleteCat(@RequestParam Long id) {
+    public void deleteCat(@RequestParam Long id) {
 
         catService.deleteCat(id);
-        return ResponseEntity.ok("Cat deleted successfully");
     }
     @PutMapping("/newOwner")
-    public ResponseEntity<String> updateOwner(@RequestParam Long id, @RequestParam Long ownerId) {
+    public void updateOwner(@RequestParam Long id, @RequestParam Long ownerId) {
 
         String newOwner = catService.updateOwner(id, ownerId);
-        return ResponseEntity.ok("Owner updated successfully. New owner: " + newOwner);
     }
     @PutMapping("/newFriend")
-    public ResponseEntity<String> addFriendship(@RequestParam Long id, @RequestParam Long friendId) {
+    public void addFriendship(@RequestParam Long id, @RequestParam Long friendId) {
 
         catService.addFriendship(id, friendId);
         catService.addFriendship(friendId, id);
-
-        return ResponseEntity.ok("Friendship created");
     }
 
     @GetMapping("/byColor")
