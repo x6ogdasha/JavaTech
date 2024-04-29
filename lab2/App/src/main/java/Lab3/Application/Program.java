@@ -1,14 +1,11 @@
-package Application;
+package Lab3.Application;
 
 import Lab3.Dto.CatDto;
 import Lab3.Dto.OwnerDto;
-import Lab3.Entities.Cat;
 import Lab3.Entities.CatColor;
-import Lab3.Entities.Owner;
 import Lab3.Services.CatService;
 import Lab3.Services.OwnerService;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 

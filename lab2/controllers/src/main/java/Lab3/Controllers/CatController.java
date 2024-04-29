@@ -1,5 +1,6 @@
 package Lab3.Controllers;
 
+import Lab3.Controllers.Exceptions.CatNotFoundException;
 import Lab3.Dto.CatDto;
 import Lab3.Dto.View.BasicView;
 import Lab3.Entities.CatColor;
@@ -25,9 +26,10 @@ public class CatController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @JsonView(BasicView.class)
-    public ResponseEntity<CatDto> getCat(@RequestParam Long id) {
+    public ResponseEntity<CatDto> getCat(@RequestParam Long id) throws CatNotFoundException {
 
         CatDto cat = catService.findCat(id);
+        if (cat == null) throw new CatNotFoundException("No this cat ");
         return ResponseEntity.ok(cat);
     }
     @PostMapping

@@ -1,4 +1,4 @@
-import Application.Program;
+import Lab3.Application.Program;
 import Lab3.Dto.CatDto;
 import Lab3.Dto.OwnerDto;
 import Lab3.Entities.Cat;
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 
 
 @SpringBootTest(classes = Program.class)
-public class Test {
+public class TestServices {
 
     @Mock
     private CatRepository catRepository;

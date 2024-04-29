@@ -26,7 +26,7 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
 
     implementation(project(":lab2:dao"))
-
+   // implementation(project(":lab2:App"))
 }
 tasks.withType<JavaCompile> {
     options.compilerArgs.add("-parameters")
