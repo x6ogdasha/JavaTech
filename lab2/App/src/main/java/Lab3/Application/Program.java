@@ -8,10 +8,12 @@ import Lab3.Services.OwnerService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+@EnableMethodSecurity
 @SpringBootApplication(scanBasePackages = {"Lab3.Services", "Lab3.Controllers","Lab3.Repositories"})
 public class Program {
 

@@ -5,6 +5,7 @@ import Lab3.Entities.Cat;
 import Lab3.Entities.Owner;
 import Lab3.Repositories.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,10 +28,12 @@ public class OwnerService {
         return new OwnerDto(foundOwner.getName(), foundOwner.getDateOfBirth(), foundOwner.getCats());
     }
 
-    public void saveOwner(OwnerDto owner) {
+    @PreAuthorize("hasRole('admin')")
+    public Owner saveOwner(OwnerDto owner) {
 
         Owner newOwner = new Owner(owner.name,owner.dateOfBirth);
         ownerRepository.save(newOwner);
+        return newOwner;
     }
 
     public void deleteOwner(Long id) {

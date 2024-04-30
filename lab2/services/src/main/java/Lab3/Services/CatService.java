@@ -8,6 +8,7 @@ import Lab3.Entities.Owner;
 import Lab3.Repositories.CatRepository;
 import Lab3.Repositories.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,7 +27,6 @@ public class CatService {
         this.catRepository = catRepository;
         this.ownerRepository = ownerRepository;
     }
-
     public CatDto findCat(Long id) {
 
         Optional<Cat> cat = catRepository.findById(id);
