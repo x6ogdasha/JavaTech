@@ -24,7 +24,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
-
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    testImplementation("org.springframework.security:spring-security-test")
     implementation(project(":lab2:dao"))
    // implementation(project(":lab2:App"))
 }
