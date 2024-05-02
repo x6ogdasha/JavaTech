@@ -90,6 +90,8 @@ public class TestControllers {
 
         OwnerDto ownerdto = new OwnerDto(
                "test",
+               "123",
+               "ROLE_ADMIN",
                Calendar.getInstance(),
                 null
         );
