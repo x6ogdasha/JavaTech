@@ -22,7 +22,7 @@ public class CatDto {
     @JsonView(BasicView.class)
     public CatColor color;
     @JsonView(BasicView.class)
-    public Long owner;
+    public String owner;
     @JsonView(DetailedView.class)
     public List<Long> friends;
 }
