@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PostFilter;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +28,7 @@ public class CatController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @JsonView(BasicView.class)
+    @PostAuthorize("(returnObject.body.owner == principal.username) || hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<CatDto> getCat(@RequestParam Long id) throws CatNotFoundException {
 
         CatDto cat = catService.findCat(id);
@@ -63,14 +66,13 @@ public class CatController {
     }
 
     @GetMapping("/byColor")
-    public ResponseEntity<List<CatDto>> findCatByColor(@RequestParam CatColor color) {
+    @PostFilter("hasAuthority('ROLE_ADMIN') or authentication.name == filterObject.owner")
+    public List<CatDto> findCatByColor(@RequestParam CatColor color) throws CatNotFoundException {
 
-        return ResponseEntity.ok(catService.findCatsByColor(color));
+        List<CatDto> cats = catService.findCatsByColor(color);
+        if (cats.isEmpty()) throw new CatNotFoundException("no cats with this color");
+
+        return catService.findCatsByColor(color);
     }
 
-    @GetMapping("/hello")
-    public ResponseEntity<String> hello() {
-
-        return ResponseEntity.ok("Hello");
-    }
 }
