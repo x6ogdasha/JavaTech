@@ -8,7 +8,8 @@ import Lab3.Entities.Owner;
 import Lab3.Repositories.CatRepository;
 import Lab3.Repositories.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PostAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -27,19 +28,20 @@ public class CatService {
         this.catRepository = catRepository;
         this.ownerRepository = ownerRepository;
     }
+
     public CatDto findCat(Long id) {
 
         Optional<Cat> cat = catRepository.findById(id);
         if (cat.isEmpty()) return null;
         Cat foundCat = cat.get();
 
-        Long ownerId = null;
-        if (foundCat.getOwner() != null) ownerId = foundCat.getOwner().getId();
+        String ownerName = null;
+        if (foundCat.getOwner() != null) ownerName = foundCat.getOwner().getName();
 
         List<Long> friendsId = null;
         if (foundCat.getFriends() != null) friendsId = foundCat.getFriends().stream().map(Cat::getId).toList();
 
-        return new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(), foundCat.getColor(), ownerId, friendsId);
+        return new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(), foundCat.getColor(), ownerName, friendsId);
     }
     public void saveCat(CatDto cat) {
 
@@ -97,24 +99,16 @@ public class CatService {
 
         for (Cat foundCat : cats) {
 
-            Long ownerId = null;
-            if (foundCat.getOwner() != null) ownerId = foundCat.getOwner().getId();
+            String ownerName = null;
+            if (foundCat.getOwner() != null) ownerName = foundCat.getOwner().getName();
 
             List<Long> friendsId = null;
             if (foundCat.getFriends() != null) friendsId = foundCat.getFriends().stream().map(Cat::getId).toList();
 
-            catsDto.add(new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(),foundCat.getColor(),ownerId, friendsId));
+            catsDto.add(new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(),foundCat.getColor(),ownerName, friendsId));
         }
 
         return catsDto;
     }
-
-
-    public OwnerDto convertToDto(Optional<Owner> owner) {
-
-        if (owner.isEmpty()) return null;
-        Owner foundOwner = owner.get();
-        return new OwnerDto(foundOwner.getName(), foundOwner.getDateOfBirth(), foundOwner.getCats());
-     }
 
 }
