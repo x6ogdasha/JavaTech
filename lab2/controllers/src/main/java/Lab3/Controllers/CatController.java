@@ -2,12 +2,9 @@ package Lab3.Controllers;
 
 import Lab3.Controllers.Exceptions.CatNotFoundException;
 import Lab3.Dto.CatDto;
-import Lab3.Dto.View.BasicView;
 import Lab3.Entities.CatColor;
 import Lab3.Services.CatService;
-import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PostAuthorize;
@@ -27,7 +24,6 @@ public class CatController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @JsonView(BasicView.class)
     @PostAuthorize("(returnObject.body.owner == principal.username) || hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<CatDto> getCat(@RequestParam Long id) throws CatNotFoundException {
 
@@ -36,7 +32,6 @@ public class CatController {
         return ResponseEntity.ok(cat);
     }
     @PostMapping
-    @JsonView(BasicView.class)
     public void addCat(@RequestBody CatDto cat) {
 
         catService.saveCat(cat);
