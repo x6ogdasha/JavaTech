@@ -8,6 +8,8 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
+
 @Setter
 @Getter
 @Entity
@@ -38,11 +40,12 @@ public class Cat {
 
     public Cat(){}
 
-    public Cat(String name, Calendar dateOfBirth, String breed, CatColor color) {
+    public Cat(String name, Calendar dateOfBirth, String breed, CatColor color, Owner owner) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.breed = breed;
         this.color = color;
+        this.owner = owner;
     }
 
 }
