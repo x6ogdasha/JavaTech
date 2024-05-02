@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.List;
 @Getter
 @Setter
@@ -19,8 +20,10 @@ public class Owner {
     private String name;
     @Column
     private Calendar dateOfBirth;
+    @Column
+    private String role;
+    private String password;
     @OneToMany(mappedBy = "owner")
-    //@JsonView(Views.DetailedView.class)
     private List<Cat> cats = new ArrayList<>();
 
     public Owner(){
