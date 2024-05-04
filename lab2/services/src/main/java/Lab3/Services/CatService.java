@@ -7,7 +7,10 @@ import Lab3.Entities.CatColor;
 import Lab3.Entities.Owner;
 import Lab3.Repositories.CatRepository;
 import Lab3.Repositories.OwnerRepository;
+import Lab3.Services.Mappers.CatMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.access.prepost.PostAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,6 +24,8 @@ public class CatService {
     private final CatRepository catRepository;
     private final OwnerRepository ownerRepository;
 
+    private final CatMapper catMapper = new CatMapper();
+
     @Autowired
     public CatService(CatRepository catRepository, OwnerRepository ownerRepository) {
         this.catRepository = catRepository;
@@ -33,17 +38,19 @@ public class CatService {
         if (cat.isEmpty()) return null;
         Cat foundCat = cat.get();
 
-        Long ownerId = null;
-        if (foundCat.getOwner() != null) ownerId = foundCat.getOwner().getId();
+        String ownerName = catMapper.mapOwnerName(foundCat.getOwner());
 
-        List<Long> friendsId = null;
-        if (foundCat.getFriends() != null) friendsId = foundCat.getFriends().stream().map(Cat::getId).toList();
+        List<Long> friendsId = catMapper.mapFriendsList(foundCat);
 
-        return new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(), foundCat.getColor(), ownerId, friendsId);
+        return new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(), foundCat.getColor(), ownerName, friendsId);
     }
     public void saveCat(CatDto cat) {
 
-        Cat newCat = new Cat(cat.name,cat.dateOfBirth,cat.breed,cat.color);
+        Optional<Owner> owner = ownerRepository.findByName(cat.owner);
+        Cat newCat;
+        newCat = owner.map(value -> new Cat(cat.name, cat.dateOfBirth, cat.breed, cat.color, value))
+                .orElseGet(() -> new Cat(cat.name, cat.dateOfBirth, cat.breed, cat.color, null));
+
         catRepository.save(newCat);
     }
 
@@ -69,8 +76,6 @@ public class CatService {
 
     public void addFriendship(Long id, Long friendId) {
 
-      //  Cat newFriend = new Cat(anotherCat.name, anotherCat.dateOfBirth, anotherCat.breed, anotherCat.color);
-
         Optional<Cat> catInDatabase = catRepository.findById(id);
         Optional<Cat> friendCatInDatabase = catRepository.findById(friendId);
         if (catInDatabase.isEmpty() || friendCatInDatabase.isEmpty()) return;
@@ -93,28 +98,7 @@ public class CatService {
     public List<CatDto> findCatsByColor(CatColor color) {
 
         List<Cat> cats = catRepository.findByColor(color);
-        List<CatDto> catsDto = new ArrayList<>();
-
-        for (Cat foundCat : cats) {
-
-            Long ownerId = null;
-            if (foundCat.getOwner() != null) ownerId = foundCat.getOwner().getId();
-
-            List<Long> friendsId = null;
-            if (foundCat.getFriends() != null) friendsId = foundCat.getFriends().stream().map(Cat::getId).toList();
-
-            catsDto.add(new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(),foundCat.getColor(),ownerId, friendsId));
-        }
-
-        return catsDto;
+        return catMapper.mapCatToDto(cats);
     }
-
-
-    public OwnerDto convertToDto(Optional<Owner> owner) {
-
-        if (owner.isEmpty()) return null;
-        Owner foundOwner = owner.get();
-        return new OwnerDto(foundOwner.getName(), foundOwner.getDateOfBirth(), foundOwner.getCats());
-     }
 
 }

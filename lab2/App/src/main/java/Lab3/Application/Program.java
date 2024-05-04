@@ -1,16 +1,14 @@
-package Application;
+package Lab3.Application;
 
 import Lab3.Dto.CatDto;
 import Lab3.Dto.OwnerDto;
-import Lab3.Entities.Cat;
 import Lab3.Entities.CatColor;
-import Lab3.Entities.Owner;
 import Lab3.Services.CatService;
 import Lab3.Services.OwnerService;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+//import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -25,8 +23,8 @@ public class Program {
         CatService catService = context.getBean(CatService.class);
 
         Calendar date = new GregorianCalendar(2004, Calendar.FEBRUARY, 19);
-        OwnerDto owner  = new OwnerDto("Bogdan", date, null);
-        OwnerDto owner2  = new OwnerDto("Kolya", date, null);
+        OwnerDto owner  = new OwnerDto("Bogdan", "123", "ROLE_ADMIN", date, null);
+        OwnerDto owner2  = new OwnerDto("Kolya", "321", "ROLE_USER", date, null);
 
         ownerService.saveOwner(owner);
         ownerService.saveOwner(owner2);
@@ -38,6 +36,10 @@ public class Program {
 
         catService.saveCat(cat);
         catService.saveCat(cat2);
+
+        catService.updateOwner(1L, 1L);
+        catService.updateOwner(2L, 2L);
+
 
 
     }

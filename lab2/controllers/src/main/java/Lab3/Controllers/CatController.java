@@ -1,14 +1,15 @@
 package Lab3.Controllers;
 
+import Lab3.Controllers.Exceptions.CatNotFoundException;
 import Lab3.Dto.CatDto;
-import Lab3.Dto.View.BasicView;
 import Lab3.Entities.CatColor;
 import Lab3.Services.CatService;
-import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PostFilter;
+import org.springframework.security.access.prepost.PreFilter;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,57 +25,50 @@ public class CatController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @JsonView(BasicView.class)
-    public ResponseEntity<CatDto> getCat(@RequestParam Long id) {
+    @PostAuthorize("(returnObject.body.owner == principal.username) || hasAuthority('ROLE_ADMIN')")
+    public ResponseEntity<CatDto> getCat(@RequestParam Long id) throws CatNotFoundException {
 
         CatDto cat = catService.findCat(id);
+        if (cat == null) throw new CatNotFoundException("No this cat ");
         return ResponseEntity.ok(cat);
     }
     @PostMapping
-    @JsonView(BasicView.class)
-    public ResponseEntity<String> addCat(@RequestBody CatDto cat) {
+    public void addCat(@RequestBody CatDto cat) {
 
         catService.saveCat(cat);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Cat added successfully");
     }
 
     @PutMapping
-    public ResponseEntity<String> updateCat(@RequestParam Long id, @RequestBody CatDto catDto) {
+    public void updateCat(@RequestParam Long id, @RequestBody CatDto catDto) {
 
         catService.updateCat(id, catDto);
-        return ResponseEntity.ok("Cat modified successfully");
     }
 
     @DeleteMapping
-    public ResponseEntity<String> deleteCat(@RequestParam Long id) {
+    public void deleteCat(@RequestParam Long id) {
 
         catService.deleteCat(id);
-        return ResponseEntity.ok("Cat deleted successfully");
     }
     @PutMapping("/newOwner")
-    public ResponseEntity<String> updateOwner(@RequestParam Long id, @RequestParam Long ownerId) {
+    public void updateOwner(@RequestParam Long id, @RequestParam Long ownerId) {
 
         String newOwner = catService.updateOwner(id, ownerId);
-        return ResponseEntity.ok("Owner updated successfully. New owner: " + newOwner);
     }
     @PutMapping("/newFriend")
-    public ResponseEntity<String> addFriendship(@RequestParam Long id, @RequestParam Long friendId) {
+    public void addFriendship(@RequestParam Long id, @RequestParam Long friendId) {
 
         catService.addFriendship(id, friendId);
         catService.addFriendship(friendId, id);
-
-        return ResponseEntity.ok("Friendship created");
     }
 
     @GetMapping("/byColor")
-    public ResponseEntity<List<CatDto>> findCatByColor(@RequestParam CatColor color) {
+    @PostFilter("hasAuthority('ROLE_ADMIN') or authentication.name == filterObject.owner")
+    public List<CatDto> findCatByColor(@RequestParam CatColor color) throws CatNotFoundException {
 
-        return ResponseEntity.ok(catService.findCatsByColor(color));
+        List<CatDto> cats = catService.findCatsByColor(color);
+        if (cats.isEmpty()) throw new CatNotFoundException("no cats with this color");
+
+        return catService.findCatsByColor(color);
     }
 
-    @GetMapping("/hello")
-    public ResponseEntity<String> hello() {
-
-        return ResponseEntity.ok("Hello");
-    }
 }
