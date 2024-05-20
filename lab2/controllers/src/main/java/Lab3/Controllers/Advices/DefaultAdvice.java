@@ -12,6 +12,7 @@ public class DefaultAdvice {
 
     @ExceptionHandler(CatNotFoundException.class)
     public ResponseEntity<Response> handeException(CatNotFoundException e) {
+
         Response response = new Response(e.getMessage());
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }

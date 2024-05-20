@@ -12,3 +12,10 @@ include("lab2:b")
 findProject(":lab2:b")?.name = "b"
 include("lab2:App")
 findProject(":lab2:App")?.name = "App"
+include("lab5")
+include("lab5:catMicroservice")
+findProject(":lab5:catMicroservice")?.name = "catMicroservice"
+include("lab5:ownerMicroservice")
+findProject(":lab5:ownerMicroservice")?.name = "ownerMicroservice"
+include("lab5:interfaceMicroservice")
+findProject(":lab5:interfaceMicroservice")?.name = "interfaceMicroservice"
