@@ -11,3 +11,16 @@
 /lab5/catMicroservice/build/
 /lab5/ownerMicroservice/build/
 /lab5/interfaceMicroservice/build/
+/lab5/catMicroservice/controllers/build/
+/lab5/ownerMicroservice/controllers/build/
+/lab5/interfaceMicroservice/controllers/build/
+/lab5/catMicroservice/app/build/
+/lab5/ownerMicroservice/app/build/
+/lab5/interfaceMicroservice/app/build/
+/lab5/catMicroservice/services/build/
+/lab5/ownerMicroservice/services/build/
+/lab5/catMicroservice/domain/build/
+/lab5/ownerMicroservice/domain/build/
+/lab5/catMicroservice/dao/build/
+/lab5/ownerMicroservice/dao/build/
+/lab5/interfaceMicroservice/services/build/
