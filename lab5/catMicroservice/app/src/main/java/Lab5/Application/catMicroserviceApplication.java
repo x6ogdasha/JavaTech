@@ -1,4 +1,4 @@
-package ru.bkitaev.catMicroservice;
+package Lab5.Application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

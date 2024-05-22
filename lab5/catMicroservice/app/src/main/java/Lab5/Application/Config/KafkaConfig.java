@@ -1,4 +1,4 @@
-package ru.bkitaev.catMicroservice.config;
+package Lab5.Application.Config;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;
