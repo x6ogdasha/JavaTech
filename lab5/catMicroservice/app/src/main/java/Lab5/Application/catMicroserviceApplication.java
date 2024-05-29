@@ -3,7 +3,7 @@ package Lab5.Application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"Lab5.Dao", "Lab5.Services", "Lab5.Controllers"})
 public class catMicroserviceApplication {
 
     public static void main(String[] args) {

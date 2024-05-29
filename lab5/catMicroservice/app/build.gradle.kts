@@ -15,7 +15,7 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 
-    //implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     //implementation("org.springframework.boot:spring-boot-starter-security")
@@ -23,6 +23,12 @@ dependencies {
 
     implementation("org.springframework.kafka:spring-kafka")
     testImplementation("org.springframework.kafka:spring-kafka-test")
+    implementation("org.modelmapper:modelmapper:2.1.1")
+
+    implementation(project(":lab5:catMicroservice:dao"))
+    implementation(project(":lab5:catMicroservice:services"))
+    implementation(project(":lab5:catMicroservice:controllers"))
+
 
 }
 

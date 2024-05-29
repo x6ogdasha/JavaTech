@@ -21,6 +21,10 @@ dependencies {
     //implementation("org.springframework.boot:spring-boot-starter-security")
     // testImplementation("org.springframework.security:spring-security-test")
 
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
+    runtimeOnly("org.postgresql:postgresql")
+
     implementation("org.springframework.kafka:spring-kafka")
     testImplementation("org.springframework.kafka:spring-kafka-test")
 
