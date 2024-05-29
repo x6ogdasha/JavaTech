@@ -24,3 +24,4 @@
 /lab5/catMicroservice/dao/build/
 /lab5/ownerMicroservice/dao/build/
 /lab5/interfaceMicroservice/services/build/
+**/build/
