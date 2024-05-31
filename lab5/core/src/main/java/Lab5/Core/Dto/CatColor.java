@@ -1,4 +1,4 @@
-package Lab5.Services.Dto;
+package Lab5.Core.Dto;
 
 public enum CatColor {
     black,

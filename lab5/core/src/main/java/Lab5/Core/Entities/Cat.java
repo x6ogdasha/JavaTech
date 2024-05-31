@@ -1,5 +1,6 @@
-package Lab5.Dao.Entities;
+package Lab5.Core.Entities;
 
+import Lab5.Core.Dto.CatColor;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,7 +29,7 @@ public class Cat {
 //    @ManyToOne(cascade = CascadeType.ALL)
     //Owner owner;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "cat_friends",
             joinColumns = @JoinColumn(name = "cat_id"),
