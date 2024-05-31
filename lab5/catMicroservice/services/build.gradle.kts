@@ -24,6 +24,14 @@ dependencies {
     implementation("org.springframework.kafka:spring-kafka")
     testImplementation("org.springframework.kafka:spring-kafka-test")
     implementation(project(":lab5:catMicroservice:dao"))
+    implementation(project(":lab5:core"))
+
+    implementation("javax.xml.bind:jaxb-api:2.3.1")
+    // https://mvnrepository.com/artifact/org.javassist/javassist
+    implementation("org.javassist:javassist:3.30.2-GA")
+
+
+
 
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
