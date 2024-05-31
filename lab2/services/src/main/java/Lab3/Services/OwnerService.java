@@ -57,7 +57,8 @@ public class OwnerService {
     public void updateOwner(OwnerDto owner) {
 
         Owner newOwner = new Owner(owner.name,owner.dateOfBirth);
-        ownerRepository.save(newOwner);    }
+        ownerRepository.save(newOwner);
+    }
 
 
 }
