@@ -24,8 +24,8 @@ import java.util.List;
 public class CatResponse {
 
     @Id
-    @GeneratedValue
-    private Long requestId;
+  /// @GeneratedValue(strategy= GenerationType.AUTO)
+    public Long requestId;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(

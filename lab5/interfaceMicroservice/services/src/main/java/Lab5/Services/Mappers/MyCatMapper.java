@@ -5,7 +5,7 @@ import Lab5.Core.Dto.CatUpdateDto;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MyMapper {
+public class MyCatMapper {
 
     public CatUpdateDto convertDtoToUpdate(Long id, CatDto dto) {
 

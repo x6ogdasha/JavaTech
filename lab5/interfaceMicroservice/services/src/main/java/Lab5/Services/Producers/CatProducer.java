@@ -3,7 +3,7 @@ package Lab5.Services.Producers;
 import Lab5.Core.Dto.CatDto;
 import Lab5.Core.Dto.CatUpdateDto;
 import Lab5.Core.Events.EventById;
-import Lab5.Services.Mappers.MyMapper;
+import Lab5.Services.Mappers.MyCatMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -16,11 +16,11 @@ import org.springframework.stereotype.Component;
 public class CatProducer {
 
     private final ObjectMapper objectMapper;
-    private final MyMapper myMapper;
+    private final MyCatMapper myMapper;
     private final KafkaTemplate<String, Object> kafkaTemplate;
 
     @Autowired
-    public CatProducer(KafkaTemplate<String, Object> kafkaTemplate, ObjectMapper objectMapper, MyMapper myMapper) {
+    public CatProducer(KafkaTemplate<String, Object> kafkaTemplate, ObjectMapper objectMapper, MyCatMapper myMapper) {
 
         this.objectMapper = objectMapper;
         this.kafkaTemplate = kafkaTemplate;

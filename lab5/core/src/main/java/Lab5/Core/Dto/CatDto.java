@@ -1,10 +1,7 @@
 package Lab5.Core.Dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +16,7 @@ import java.util.List;
 public class CatDto {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
     @JsonProperty("name")

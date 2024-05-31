@@ -83,4 +83,12 @@ public class KafkaConfig {
                 .configs(Map.of("min.insync.replicas", "2"))
                 .build();
     }
+    @Bean
+    NewTopic resultOwnerTopic() {
+        return TopicBuilder.name("owner-result-topic")
+                .partitions(3)
+                .replicas(3)
+                .configs(Map.of("min.insync.replicas", "2"))
+                .build();
+    }
 }

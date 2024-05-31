@@ -26,8 +26,8 @@ public class Cat {
     String breed;
     @Column
     CatColor color;
-//    @ManyToOne(cascade = CascadeType.ALL)
-    //Owner owner;
+    @ManyToOne(cascade = CascadeType.ALL)
+    Owner owner;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(

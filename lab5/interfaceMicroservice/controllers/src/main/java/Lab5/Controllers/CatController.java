@@ -35,10 +35,10 @@ public class CatController {
     public ResponseEntity<String> getCat(@RequestParam Long id) throws CatNotFoundException, JsonProcessingException {
 
         Request request = resultService.addRequest();
-        EventById eventById = new EventById(request.getRequestId(), id);
+        EventById eventById = new EventById(request.getId(), id);
         catService.getCat(eventById);
 
-        return new ResponseEntity<>("check result there: /cats/request/" + request.getRequestId(), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>("check result there: /cat/request/" + request.getId(), HttpStatus.ACCEPTED);
     }
     @PostMapping
     public void addCat(@RequestBody CatDto cat) throws JsonProcessingException {
@@ -86,7 +86,7 @@ public class CatController {
 
         if (request.getStatus() == RequestStatus.IN_WORK) {
             return new ResponseEntity<>(
-                    "go there: /cats/request/" + request.getRequestId(),
+                    "go there: /cats/request/" + request.getId(),
                     HttpStatus.ACCEPTED
             );
         }
