@@ -27,7 +27,6 @@ dependencies {
 
     implementation(project(":lab5:catMicroservice:dao"))
     implementation(project(":lab5:catMicroservice:services"))
-    implementation(project(":lab5:catMicroservice:controllers"))
 
 
 }
