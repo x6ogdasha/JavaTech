@@ -1,7 +1,7 @@
 package Lab5.Services.Mappers;
 
-import Lab5.Services.Dto.CatDto;
-import Lab5.Dao.Entities.Cat;
+import Lab5.Core.Dto.CatDto;
+import Lab5.Core.Entities.Cat;
 //import Lab5.Dao.Entities.Owner;
 import org.springframework.stereotype.Component;
 

@@ -1,25 +1,16 @@
 package Lab5.Services;
 
-import Lab5.Services.Dto.CatDto;
-//import Lab5.Dao.Dto.OwnerDto;
-import Lab5.Dao.Entities.Cat;
-import Lab5.Dao.Entities.CatColor;
-//import Lab5.Dao.Entities.Owner;
+import Lab5.Core.Dto.CatDto;
+import Lab5.Core.Dto.CatColor;
+import Lab5.Core.Entities.Cat;
 import Lab5.Dao.Repositories.CatRepository;
-//import Lab5.Dao.Repositories.OwnerRepository;
-import Lab5.Services.Event.CatCreatedEvent;
 import Lab5.Services.Mappers.CatMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
 
 @Slf4j
 @Service
@@ -50,7 +41,7 @@ public class CatService {
 
         List<Long> friendsId = catMapper.mapFriendsList(foundCat);
 
-        return new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(), foundCat.getColor(), "тут будет хозяин", friendsId);
+        return new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(), foundCat.getColor(), "", friendsId);
     }
     public String saveCat(CatDto cat) {
 

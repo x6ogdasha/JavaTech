@@ -1,18 +1,11 @@
 package Lab5.Services;
 
-import Lab5.Services.Dto.CatDto;
-import Lab5.Services.Event.CatCreatedEvent;
+import Lab5.Core.Dto.CatDto;
+import Lab5.Core.Events.EventById;
+import Lab5.Services.Producers.CatProducer;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
 
 @Service
 public class CatService {
@@ -26,7 +19,22 @@ public class CatService {
 
     public String saveCat(CatDto cat) throws JsonProcessingException {
 
-        return catProducer.sendMessage(cat);
+        return catProducer.sendForAddingCatMessage(cat);
+    }
+
+    public String getCat(EventById event) throws JsonProcessingException {
+
+        return catProducer.sendForGettingCatMessage(event);
+    }
+
+    public String updateCat(Long id, CatDto dto) throws JsonProcessingException {
+
+        return catProducer.sendUpdatingCatMessage(id, dto);
+    }
+
+    public String deleteCat(Long id) throws JsonProcessingException {
+
+        return catProducer.sendDeletingCatMessage(id);
     }
 
 

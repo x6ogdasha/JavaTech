@@ -1,7 +1,7 @@
 package Lab5.Dao.Repositories;
 
-import Lab5.Dao.Entities.Cat;
-import Lab5.Dao.Entities.CatColor;
+import Lab5.Core.Dto.CatColor;
+import Lab5.Core.Entities.Cat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

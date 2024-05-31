@@ -49,3 +49,7 @@ include("lab5:ownerMicroservice:domain")
 findProject(":lab5:ownerMicroservice:domain")?.name = "domain"
 include("lab5:ownerMicroservice:dao")
 findProject(":lab5:ownerMicroservice:dao")?.name = "dao"
+include("lab5:core")
+findProject(":lab5:core")?.name = "core"
+include("lab5:interfaceMicroservice:dao")
+findProject(":lab5:interfaceMicroservice:dao")?.name = "dao"
