@@ -7,8 +7,6 @@ import Lab5.Dao.Repositories.OwnerRepository;
 import Lab5.Services.Mappers.MyMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,13 +17,9 @@ import java.util.Optional;
 public class OwnerService {
 
     private final OwnerRepository ownerRepository;
-    private final MyMapper myMapper;
-    //private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     @Autowired
-    public OwnerService(OwnerRepository ownerRepository, MyMapper myMapper) {
-
+    public OwnerService(OwnerRepository ownerRepository) {
         this.ownerRepository = ownerRepository;
-        this.myMapper = myMapper;
     }
 
     public OwnerDto findOwner(Long id) {
@@ -44,8 +38,6 @@ public class OwnerService {
     public Owner saveOwner(OwnerDto owner) {
 
         Owner newOwner = new Owner(owner.name,owner.dateOfBirth);
-       // newOwner.setPassword(passwordEncoder.encode(owner.password));
-        //newOwner.setRole(owner.role);
         ownerRepository.save(newOwner);
         log.info("owner persisted: {}", newOwner);
         return newOwner;

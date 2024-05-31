@@ -39,13 +39,6 @@ public class Cat {
 
     public Cat(){}
 
-//    public Cat(String name, Calendar dateOfBirth, String breed, CatColor color, Owner owner) {
-//        this.name = name;
-//        this.dateOfBirth = dateOfBirth;
-//        this.breed = breed;
-//        this.color = color;
-//        this.owner = owner;
-//    }
     public Cat(String name, Calendar dateOfBirth, String breed, CatColor color) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;

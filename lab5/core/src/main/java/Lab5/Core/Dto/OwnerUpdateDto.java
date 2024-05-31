@@ -14,10 +14,6 @@ public class OwnerUpdateDto {
 
     public String name;
 
-//    public String password;
-//
-//    public String role;
-
     public Calendar dateOfBirth;
 
     public List<String> cats;

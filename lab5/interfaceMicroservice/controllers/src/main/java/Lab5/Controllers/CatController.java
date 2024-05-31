@@ -30,8 +30,6 @@ public class CatController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-
-   // @PostAuthorize("(returnObject.body.owner == principal.username) || hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<String> getCat(@RequestParam Long id) throws CatNotFoundException, JsonProcessingException {
 
         Request request = resultService.addRequest();
@@ -57,27 +55,6 @@ public class CatController {
 
         catService.deleteCat(id);
     }
-//    @PutMapping("/newOwner")
-//    public void updateOwner(@RequestParam Long id, @RequestParam Long ownerId) {
-//
-//        String newOwner = catService.updateOwner(id, ownerId);
-//    }
-//    @PutMapping("/newFriend")
-//    public void addFriendship(@RequestParam Long id, @RequestParam Long friendId) {
-//
-//        catService.addFriendship(id, friendId);
-//        catService.addFriendship(friendId, id);
-//    }
-//
-//    @GetMapping("/byColor")
-//   // @PostFilter("hasAuthority('ROLE_ADMIN') or authentication.name == filterObject.owner")
-//    public List<CatDto> findCatByColor(@RequestParam CatColor color) throws CatNotFoundException {
-//
-//        List<CatDto> cats = catService.findCatsByColor(color);
-//        if (cats.isEmpty()) throw new CatNotFoundException("no cats with this color");
-//
-//        return catService.findCatsByColor(color);
-//    }
 
     @GetMapping("/request/{id}")
     public ResponseEntity<?> getByRequestId(@PathVariable Long id) throws Exception {

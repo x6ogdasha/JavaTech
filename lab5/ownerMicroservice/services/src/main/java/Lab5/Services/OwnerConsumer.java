@@ -1,11 +1,8 @@
 package Lab5.Services;
 
-import Lab5.Core.Dto.CatDto;
-import Lab5.Core.Dto.CatUpdateDto;
 import Lab5.Core.Dto.OwnerDto;
 import Lab5.Core.Dto.OwnerUpdateDto;
 import Lab5.Core.Events.EventById;
-import Lab5.Core.Responses.CatResponse;
 import Lab5.Core.Responses.OwnerResponse;
 import Lab5.Services.Mappers.MyMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -44,8 +41,6 @@ public class OwnerConsumer {
     public void consumeForAddingOwnerMessage(String message) throws JsonProcessingException {
 
         log.info("message consumed: {}", message);
-
-        //TODO: добавить исключение в Advice Controller
         OwnerDto ownerDto = objectMapper.readValue(message, OwnerDto.class);
         ownerService.saveOwner(ownerDto);
     }
@@ -54,8 +49,6 @@ public class OwnerConsumer {
     public void consumeForGettingOwnerMessage(String message) throws JsonProcessingException {
 
         log.info("message consumed: {}", message);
-
-        //TODO: добавить исключение в Advice Controller
         EventById eventById = objectMapper.readValue(message, EventById.class);
         log.info("event from mapper: {}", eventById.catId);
         OwnerDto ownerDto = ownerService.findOwner(eventById.catId);
@@ -75,7 +68,6 @@ public class OwnerConsumer {
 
         log.info("message consumed: {}", message);
 
-        //TODO: добавить исключение в Advice Controller
         Long id = objectMapper.readValue(message, Long.class);
         ownerService.deleteOwner(id);
     }
@@ -84,7 +76,6 @@ public class OwnerConsumer {
 
         log.info("message consumed: {}", message);
 
-        //TODO: добавить исключение в Advice Controller
         OwnerUpdateDto ownerUpdateDto = objectMapper.readValue(message, OwnerUpdateDto.class);
         OwnerDto ownerDto = myMapper.convertUpdateDtotoDto(ownerUpdateDto);
         ownerService.updateOwner(ownerUpdateDto.getIdOwnerToUpdate(), ownerDto);

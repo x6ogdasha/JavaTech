@@ -22,10 +22,6 @@ public class OwnerDto {
 
     public String name;
 
-    //public String password;
-
-//    public String role;
-
     public Calendar dateOfBirth;
 
     @ElementCollection

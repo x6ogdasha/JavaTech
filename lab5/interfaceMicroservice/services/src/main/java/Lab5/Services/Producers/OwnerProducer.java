@@ -3,7 +3,6 @@ package Lab5.Services.Producers;
 import Lab5.Core.Dto.OwnerDto;
 import Lab5.Core.Dto.OwnerUpdateDto;
 import Lab5.Core.Events.EventById;
-import Lab5.Services.Mappers.MyCatMapper;
 import Lab5.Services.Mappers.MyOwnerMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

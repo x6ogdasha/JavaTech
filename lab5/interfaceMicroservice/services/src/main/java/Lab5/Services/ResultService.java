@@ -49,13 +49,15 @@ public class ResultService {
     }
 
     public Request getRequestById(Long id) throws Exception {
-        //TODO хуево ищет айди
+
         return requestRepository.findById(id).orElseThrow( () -> new Exception("No id:  " + id));
     }
     public CatResponse getResponseById(Long id) throws Exception {
+
         return catResponseRepository.findById(id).orElseThrow(() -> new Exception("No id: " + id));
     }
     public OwnerResponse getOwnerResponseById(Long id) throws Exception {
+
         return ownerResponseRepository.findById(id).orElseThrow(() -> new Exception("No id: " + id));
     }
 

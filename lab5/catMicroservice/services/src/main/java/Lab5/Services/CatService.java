@@ -17,15 +17,8 @@ import java.util.Optional;
 public class CatService {
 
     private final CatRepository catRepository;
-    //private final OwnerRepository ownerRepository;
     private final CatMapper catMapper = new CatMapper();
 
-    //TODO: подкрути пользователя
-//    @Autowired
-//    public CatService(CatRepository catRepository, OwnerRepository ownerRepository) {
-//        this.catRepository = catRepository;
-//        this.ownerRepository = ownerRepository;
-//    }
     @Autowired
     public CatService(CatRepository catRepository) {
         this.catRepository = catRepository;
@@ -36,8 +29,6 @@ public class CatService {
         Optional<Cat> cat = catRepository.findById(id);
         if (cat.isEmpty()) return null;
         Cat foundCat = cat.get();
-
-        //String ownerName = catMapper.mapOwnerName(foundCat.getOwner());
 
         List<Long> friendsId = catMapper.mapFriendsList(foundCat);
 
@@ -52,7 +43,6 @@ public class CatService {
 //                .orElseGet(() -> new Cat(cat.name, cat.dateOfBirth, cat.breed, cat.color, null));
 //
 //        catRepository.save(newCat);
-        //TODO: mapper Dto -> Jpa
         Cat newCat = new Cat(cat.name, cat.dateOfBirth, cat.breed, cat.color);
         newCat =  catRepository.save(newCat);
         String catId = newCat.getId().toString();
@@ -90,19 +80,6 @@ public class CatService {
 
         catRepository.save(catInDatabase.get());
     }
-   // public String updateOwner(Long id, Long ownerId) {
-
-//        Optional<Cat> catInDatabase = catRepository.findById(id);
-//        //TODO: подкрути пользователя
-//       // Optional<Owner> ownerInDatabase = ownerRepository.findById(ownerId);
-//       // if (catInDatabase.isEmpty() || ownerInDatabase.isEmpty()) return null;
-//        if (catInDatabase.isEmpty()) return null;
-//        Cat foundCat = catInDatabase.get();
-//        Owner foundOwner = ownerInDatabase.get();
-//        foundCat.setOwner(foundOwner);
-//        catRepository.save(foundCat);
-//        return foundOwner.getName();
-   // }
 
     public List<CatDto> findCatsByColor(CatColor color) {
 

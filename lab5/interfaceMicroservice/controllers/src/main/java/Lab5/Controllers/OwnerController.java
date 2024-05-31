@@ -1,11 +1,9 @@
 package Lab5.Controllers;
 
-import Lab5.Core.Dto.CatDto;
 import Lab5.Core.Dto.OwnerDto;
 import Lab5.Core.Events.EventById;
 import Lab5.Core.Requests.Request;
 import Lab5.Core.Requests.RequestStatus;
-import Lab5.Core.Responses.CatResponse;
 import Lab5.Core.Responses.OwnerResponse;
 import Lab5.Services.OwnerService;
 import Lab5.Services.ResultService;
@@ -14,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

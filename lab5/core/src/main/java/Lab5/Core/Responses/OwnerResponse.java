@@ -23,7 +23,6 @@ import java.util.List;
 public class OwnerResponse {
 
     @Id
-   /// @GeneratedValue(strategy= GenerationType.AUTO)
     private Long requestId;
 
     @ManyToMany(fetch = FetchType.EAGER)
