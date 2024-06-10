@@ -1,4 +1,4 @@
-package Lab5.Services.Mappers;
+package Lab5.OwnerServices.Mappers;
 
 import Lab5.Core.Dto.OwnerDto;
 import Lab5.Core.Dto.CatUpdateDto;

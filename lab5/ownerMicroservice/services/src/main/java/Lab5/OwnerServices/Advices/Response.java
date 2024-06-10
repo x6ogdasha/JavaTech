@@ -1,4 +1,4 @@
-package Lab5.Services.Advices;
+package Lab5.OwnerServices.Advices;
 
 public class Response {
     String message;

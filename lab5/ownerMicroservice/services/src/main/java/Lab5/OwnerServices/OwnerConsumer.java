@@ -1,10 +1,10 @@
-package Lab5.Services;
+package Lab5.OwnerServices;
 
 import Lab5.Core.Dto.OwnerDto;
 import Lab5.Core.Dto.OwnerUpdateDto;
 import Lab5.Core.Events.EventById;
 import Lab5.Core.Responses.OwnerResponse;
-import Lab5.Services.Mappers.MyMapper;
+import Lab5.OwnerServices.Mappers.MyMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;

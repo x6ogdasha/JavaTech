@@ -1,4 +1,4 @@
-package Lab5.Dao.Repositories;
+package Lab5.Dao.OwnerRepositories;
 
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +18,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "Lab5.Dao.Repositories")
+@EnableJpaRepositories(basePackages = "Lab5.Dao.OwnerRepositories")
 public class PersistenceConfiguration {
 
     @Bean

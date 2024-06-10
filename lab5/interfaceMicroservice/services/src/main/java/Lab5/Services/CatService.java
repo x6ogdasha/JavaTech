@@ -2,6 +2,7 @@ package Lab5.Services;
 
 import Lab5.Core.Dto.CatDto;
 import Lab5.Core.Events.EventById;
+import Lab5.Services.Mappers.MyCatMapper;
 import Lab5.Services.Producers.CatProducer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +13,20 @@ public class CatService {
 
     private final CatProducer catProducer;
 
+
+
+    private final MyCatMapper catMapper;
     @Autowired
-    public CatService(CatProducer catProducer) {
+    public CatService(CatProducer catProducer, MyCatMapper myCatMapper) {
         this.catProducer = catProducer;
+
+        this.catMapper = myCatMapper;
     }
 
     public String saveCat(CatDto cat) throws JsonProcessingException {
 
         return catProducer.sendForAddingCatMessage(cat);
     }
-
     public String getCat(EventById event) throws JsonProcessingException {
 
         return catProducer.sendForGettingCatMessage(event);

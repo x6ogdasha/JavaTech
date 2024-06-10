@@ -1,4 +1,4 @@
-package Lab5.Services.Exceptions;
+package Lab5.OwnerServices.Exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

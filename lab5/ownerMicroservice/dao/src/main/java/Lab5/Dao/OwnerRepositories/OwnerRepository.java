@@ -1,4 +1,4 @@
-package Lab5.Dao.Repositories;
+package Lab5.Dao.OwnerRepositories;
 
 import Lab5.Core.Entities.Owner;
 import org.springframework.data.jpa.repository.JpaRepository;

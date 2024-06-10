@@ -1,10 +1,10 @@
-package Lab5.Services;
+package Cat.CatServices;
 
+import Cat.CatServices.Mappers.CatMapper;
 import Lab5.Core.Dto.CatDto;
 import Lab5.Core.Dto.CatColor;
 import Lab5.Core.Entities.Cat;
 import Lab5.Dao.Repositories.CatRepository;
-import Lab5.Services.Mappers.CatMapper;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +30,11 @@ public class CatService {
         if (cat.isEmpty()) return null;
         Cat foundCat = cat.get();
 
+        String ownerName = catMapper.mapOwnerName(foundCat.getOwner());
+
         List<Long> friendsId = catMapper.mapFriendsList(foundCat);
 
-        return new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(), foundCat.getColor(), "", friendsId);
+        return new CatDto(foundCat.getName(), foundCat.getDateOfBirth(), foundCat.getBreed(), foundCat.getColor(), ownerName, friendsId);
     }
     public String saveCat(CatDto cat) {
 

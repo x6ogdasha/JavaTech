@@ -28,26 +28,26 @@ public class OwnerController {
         this.ownerService = ownerService;
         this.resultService = resultService;
     }
-     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-   // @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    // @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<String> getOwner(@RequestParam Long id) throws JsonProcessingException {
 
         Request request = resultService.addRequest();
         EventById eventById = new EventById(request.getId(), id);
 
         ownerService.getOwner(eventById);
-         return new ResponseEntity<>("check result there: /owner/request/" + request.getId(), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>("check result there: /owner/request/" + request.getId(), HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/new")
-   // @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    // @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public void addOwner(@RequestBody OwnerDto owner) throws JsonProcessingException {
 
         ownerService.saveOwner(owner);
     }
 
     @PutMapping
-   // @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    // @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public void updateOwner(@PathVariable Long id, @RequestBody OwnerDto owner) throws JsonProcessingException {
 
         ownerService.updateOwner(id,owner);

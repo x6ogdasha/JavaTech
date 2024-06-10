@@ -29,6 +29,9 @@ dependencies {
     implementation(project(":lab5:catMicroservice:services"))
 
 
+
+
+
 }
 
 tasks.test {

@@ -1,14 +1,12 @@
-package Lab5.Services;
+package Cat.CatServices;
 
+import Cat.CatServices.Mappers.MyMapper;
 import Lab5.Core.Dto.CatUpdateDto;
-import Lab5.Core.Entities.Cat;
 import Lab5.Core.Events.EventById;
 import Lab5.Core.Responses.CatResponse;
-import Lab5.Services.Mappers.MyMapper;
 import Lab5.Core.Dto.CatDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jdk.jfr.Event;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;

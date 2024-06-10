@@ -1,4 +1,4 @@
-package Lab5.Services.Exceptions;
+package Lab5.OwnerServices.Exceptions;
 
 public class OwnerNotFoundException extends Exception{
     public OwnerNotFoundException(){

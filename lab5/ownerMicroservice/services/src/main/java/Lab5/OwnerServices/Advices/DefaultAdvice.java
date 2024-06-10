@@ -1,6 +1,6 @@
-package Lab5.Services.Advices;
+package Lab5.OwnerServices.Advices;
 
-import Lab5.Services.Exceptions.CatNotFoundException;
+import Lab5.OwnerServices.Exceptions.CatNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
