@@ -1,6 +1,5 @@
 # Java RESTful application
 
-------------
 
 ### Lab2 module
 + Controller-Service-Dao architecture
